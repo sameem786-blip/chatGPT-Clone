@@ -14,11 +14,6 @@ const chatgroupSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
-    isDeleted: {
-        type: Boolean,
-        required: false,
-        default: false
-    }
 
   // Add other fields as needed for your user schema
 });
