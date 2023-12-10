@@ -15,6 +15,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  oAuthId: {
+
+  },
   // Add other fields as needed for your user schema
 });
 
