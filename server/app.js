@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 console.log("Attempting to connect to DB...");
 connect();
-app.use("/api/user", UserRoutes);
+app.use("/auth/user", UserRoutes);
 // app.use("/api/chat", ChatRoutes);
 
 app.listen(process.env.PORT, () => {

@@ -74,6 +74,16 @@ exports.login = async (req, res) => {
     }
 }
 
+exports.forgetPassword = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).json("Internal Server Error");
+    }
+    
+}
+
 //microsoft Oauth
 exports.msAuth = async (req, res) => {
     try {
@@ -83,6 +93,15 @@ exports.msAuth = async (req, res) => {
         res.status(500).json("Internal Server Error");
     }
 }
+exports.msAuthCallback = async (req, res) => {
+    try {
+        
+    } catch (err) {
+        console.error(err);
+        res.status(500).json("Internal Server Error");
+    }
+}
+
 //Google Oauth
 exports.googleAuth = async (req, res) => {
     try {
