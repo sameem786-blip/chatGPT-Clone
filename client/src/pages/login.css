@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "Sohne Bold"; /* Provide a name for your font family */
+  src: url("../public/fonts/sohne/TestSöhneBroad/TestSöhneBreit-Halbfett.otf")
+    format("opentype");
+}
+@font-face {
+  font-family: "Sohne Narrow"; /* Provide a name for your font family */
+  src: url("../public/fonts/sohne/TestSöhneNarrow/TestSöhneSchmal-Halbfett.otf")
+    format("opentype");
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.left {
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  background-color: #ffffdb;
+}
+
+.innerContainer {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.heading {
+  height: fit-content;
+  width: fit-content;
+}
+
+.logo {
+  height: 36px;
+}
+
+.typewriter {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: #fe7600;
+  padding-left: 16px;
+}
+
+.typewriterHeading {
+  font-size: 40px;
+  font-family: "Sohne Bold";
+  letter-spacing: 2px;
+  margin-bottom: -1px;
+  height: fit-content;
+}
+
+.typewriterDescription {
+  height: fit-content;
+  font-size: 40px;
+  font-family: "Sohne Narrow";
+  letter-spacing: 2px;
+  margin-top: -1px;
+}
+
+.right {
+  width: 40%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  background-color: white;
+}
+
+.rightInnerContainer {
+  width: 100%;
+  height: 60%;
+  border: 2px solid red;
+  flex-direction: column;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px;
+}

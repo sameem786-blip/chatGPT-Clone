@@ -1,8 +1,10 @@
-import './App.css';
+import "./App.css";
+import LoginPage from "./pages/LoginPage.jsx";
 
 function App() {
   return (
     <div className="App">
+      <LoginPage />
     </div>
   );
 }
