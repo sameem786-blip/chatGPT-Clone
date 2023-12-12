@@ -34,15 +34,31 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: 15px;
+  padding-left: 31px;
 }
 
 .heading {
   height: fit-content;
   width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo {
-  height: 36px;
+.gptText{
+  font-family: "Sohne Bold";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  color: #fe7600;
+}
+
+.gptTextCircle{
+  border-radius: 50px;
+  background-color: #fe7600;
+  height: 17px;
+  width: 17px;
 }
 
 .typewriter {
@@ -52,12 +68,14 @@
   align-items: flex-start;
   justify-content: flex-start;
   color: #fe7600;
-  padding-left: 16px;
+  text-align: left;
 }
 
 .typewriterHeading {
   font-size: 40px;
   font-family: "Sohne Bold";
+  font-weight: 700;
+  line-height: 48px;
   letter-spacing: 2px;
   margin-bottom: -1px;
   height: fit-content;
@@ -65,10 +83,11 @@
 
 .typewriterDescription {
   height: fit-content;
-  font-size: 40px;
-  font-family: "Sohne Narrow";
-  letter-spacing: 2px;
+  line-height: 48px;
+  font-size: 35px;
+  font-family: "Sohne Bold";
   margin-top: -1px;
+  font-weight: 400;
 }
 
 .right {
@@ -82,11 +101,87 @@
 
 .rightInnerContainer {
   width: 100%;
-  height: 60%;
-  border: 2px solid red;
+  height: 65%;
   flex-direction: column;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  padding: 15px;
 }
+
+.header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+p{
+  font-family: "Sohne Bold";
+  font-size:30px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.btnGroup{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.btn{
+  height: 50px;
+  width: 200px;
+  border-radius: 5px;
+  border: 0px;
+  background-color: #3C46FF;
+  color: white;
+  font-family: "Sohne Bold";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.btn:hover{
+  background-color: #0000FF;
+  cursor: pointer;
+}
+
+.footer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  gap: 10px;
+}
+
+.openailogo{
+  height: 20px;
+}
+
+.termnpolicy{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.footerLink{
+  font-family: "Sohne Bold";
+  font-size: 12px;
+  text-decoration: underline;
+  font-weight: 400;
+  word-spacing: -1px;
+  color: black;
+  line-height: 16px;
+}
+
+hr{
+  transform: rotate(90deg);
+  width: 5px;
+}
+
