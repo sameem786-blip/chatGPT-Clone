@@ -179,7 +179,7 @@ p {
   line-height: 16px;
 }
 
-hr {
+.footer-line {
   transform: rotate(90deg);
   width: 5px;
 }

@@ -20,6 +20,10 @@ const LoginPage = () => {
     setIsModalOpen(true);
   };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   useEffect(() => {
     const currentHeading = typewriterText[index].heading;
     setHeading(currentHeading);
@@ -82,14 +86,14 @@ const LoginPage = () => {
               <button className="btn" onClick={() => openModal("signup")}>
                 Sign up
               </button>
-              <Modal isOpen={isModalOpen} content={modalContent} />
+              <Modal isOpen={isModalOpen} onClose={closeModal} content={modalContent} />
             </div>
           </div>
           <div className="footer">
             <img src={openai} alt="" className="openailogo" />
             <div className="termnpolicy">
               <p className="footerLink">Terms of use</p>
-              <hr></hr>
+              <hr className="footer-line"></hr>
               <p className="footerLink">Privacy policy</p>
             </div>
           </div>
