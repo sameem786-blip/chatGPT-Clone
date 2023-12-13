@@ -1,44 +1,72 @@
-
 [
   {
     "heading": "Expressing Gratitude",
-    "description": ["Write a thank-you note to our babysitter for the last-minute help."]
+    "description": [
+      ".Write a thank-you note to our babysitter for the last-minute help."
+    ]
   },
   {
     "heading": "Planning Activities",
-    "description": ["Suggest fun activities for a team-building day with remote employees","Propose indoor activities for a family of 4 on a rainy day."]
+    "description": [
+      ".Suggest fun activities for a team-building day with remote employees",
+      ".Propose indoor activities for a family of 4 on a rainy day."
+    ]
   },
   {
     "heading": "Summarizing and Structuring Information",
-    "description": ["Summarize an article into three key points.", "Create a table outlining the pros and cons of a specific subject."]
+    "description": [
+      ".Summarize an article into three key points.",
+      ".Create a table outlining the pros and cons of a specific subject."
+    ]
   },
   {
     "heading": "Improvement and Enhancement",
-    "description": ["Enhance a post for selling a used vacuum cleaner in good condition.","Improve a job posting for hiring a store associate."]
+    "description": [
+      ".Enhance a post for selling a used vacuum cleaner in good condition.",
+      ".Improve a job posting for hiring a store associate."
+    ]
   },
   {
     "heading": "Communication and Correspondence",
-    "description": ["Write a thank-you note to our babysitter for the last-minute help.","Write a text message that accompanies a kitten GIF for a friend going through a tough time.","Draft an email to request a quote from local plumbers.","Write a thank-you note for interviewees."]
+    "description": [
+      ".Write a thank-you note to our babysitter for the last-minute help.",
+      ".Write a text message that accompanies a kitten GIF for a friend going through a tough time.",
+      ".Draft an email to request a quote from local plumbers.",
+      ".Write a thank-you note for interviewees."
+    ]
   },
   {
     "heading": "Generating Ideas",
-    "description": ["Generate ideas for a customer loyalty program in a small bookstore.","Provide suggestions on what to do with kids' art."]
+    "description": [
+      ".Generate ideas for a customer loyalty program in a small bookstore.",
+      ".Provide suggestions on what to do with kids' art."
+    ]
   },
   {
     "heading": "Troubleshooting and Debugging",
-    "description": ["Assist in debugging a Python script automating daily reports.","Troubleshoot why a linked list appears empty after being reversed."]
+    "description": [
+      ".Assist in debugging a Python script automating daily reports.",
+      ".Troubleshoot why a linked list appears empty after being reversed."
+    ]
   },
   {
     "heading": "Creative Brainstorming",
-    "description": ["Brainstorm names for an orange cat being adopted from the shelter.","Suggest fantasy football team names."]
+    "description": [
+      ".Brainstorm names for an orange cat being adopted from the shelter.",
+      ".Suggest fantasy football team names."
+    ]
   },
   {
     "heading": "Travel Planning",
-    "description": ["Plan a trip to see the northern lights in Norway","Plan a trip to experience Seoul like a local."]
+    "description": [
+      ".Plan a trip to see the northern lights in Norway",
+      ".Plan a trip to experience Seoul like a local."
+    ]
   },
   {
     "heading": "Deadline Requests",
-    "description": ["Draft an email requesting a deadline extension for a project."]
+    "description": [
+      ".Draft an email requesting a deadline extension for a project."
+    ]
   }
-
 ]

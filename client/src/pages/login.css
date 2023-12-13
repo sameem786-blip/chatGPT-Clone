@@ -46,7 +46,7 @@
   justify-content: center;
 }
 
-.gptText{
+.gptText {
   font-family: "Sohne Bold";
   font-weight: 700;
   font-size: 20px;
@@ -54,7 +54,7 @@
   color: #fe7600;
 }
 
-.gptTextCircle{
+.gptTextCircle {
   border-radius: 50px;
   background-color: #fe7600;
   height: 17px;
@@ -62,13 +62,14 @@
 }
 
 .typewriter {
-  width: 70%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
   color: #fe7600;
   text-align: left;
+  max-height: 200px; /* Set a maximum height for the description area */
 }
 
 .typewriterHeading {
@@ -82,14 +83,12 @@
 }
 
 .typewriterDescription {
-  height: fit-content;
-  line-height: 48px;
+  height: 300px; /* Adjust height to match max-height of typewriter */
   font-size: 35px;
   font-family: "Sohne Bold";
   margin-top: -1px;
-  font-weight: 400;
+  font-weight: 400; /* Prevent text wrapping */
 }
-
 .right {
   width: 40%;
   display: flex;
@@ -108,22 +107,22 @@
   justify-content: space-between;
 }
 
-.header{
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-p{
+p {
   font-family: "Sohne Bold";
-  font-size:30px;
+  font-size: 30px;
   letter-spacing: 1px;
   font-weight: 600;
   line-height: 32px;
 }
 
-.btnGroup{
+.btnGroup {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -131,12 +130,12 @@ p{
   gap: 10px;
 }
 
-.btn{
+.btn {
   height: 50px;
   width: 200px;
   border-radius: 5px;
   border: 0px;
-  background-color: #3C46FF;
+  background-color: #3c46ff;
   color: white;
   font-family: "Sohne Bold";
   font-size: 16px;
@@ -144,12 +143,12 @@ p{
   line-height: 24px;
 }
 
-.btn:hover{
-  background-color: #0000FF;
+.btn:hover {
+  background-color: #0000ff;
   cursor: pointer;
 }
 
-.footer{
+.footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,11 +157,11 @@ p{
   gap: 10px;
 }
 
-.openailogo{
+.openailogo {
   height: 20px;
 }
 
-.termnpolicy{
+.termnpolicy {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -170,7 +169,7 @@ p{
   gap: 5px;
 }
 
-.footerLink{
+.footerLink {
   font-family: "Sohne Bold";
   font-size: 12px;
   text-decoration: underline;
@@ -180,8 +179,7 @@ p{
   line-height: 16px;
 }
 
-hr{
+hr {
   transform: rotate(90deg);
   width: 5px;
 }
-
