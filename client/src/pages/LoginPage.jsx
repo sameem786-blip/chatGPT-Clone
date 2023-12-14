@@ -86,7 +86,7 @@ const LoginPage = () => {
               <button className="btn" onClick={() => openModal("signup")}>
                 Sign up
               </button>
-              <Modal isOpen={isModalOpen} onClose={closeModal} content={modalContent} />
+              <Modal isOpen={isModalOpen} onClose={closeModal} content={modalContent}/>
             </div>
           </div>
           <div className="footer">
