@@ -12,10 +12,6 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
   const [modalContent, setModalContent] = useState(content)
   const modalClass = isOpen ? "modal-container open" : "modal-container";
 
-  const closeModal = () => {
-    onClose(); // Call the onClose function from props to close the modal
-  };
-
   const changeModal = () => {
     setModalContent(modalContent === "login" ? "signup" : "login"); // Update content state
   };
@@ -23,16 +19,14 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
   return (
     <div className={modalClass}>
       <div className="modal-content">
-        <div className="closebtnicon">
-          <CloseIcon className="closeicon" onClick={closeModal} />
-        </div>
         <div className="authcontent">
           <div className="openai-logo">
             <img src={openaispiral} alt="" className="openaiLogo" />
           </div>
           <div className="authfields">
             {modalContent == "login" ? <p className="welcomeText">Welcome back</p> : <p className="welcomeText">Create your account</p>}
-            <input className="inp" placeholder="Email address"></input>
+            <input className="inp" id="emailInput" placeholder=""></input>
+            <label for="emailInput" class="input-label">Email address</label>
             <button className="auth-btn">Continue</button>
             {modalContent === "login" ? <p className="signup-text">Don't have an account? <a className="green-text" onClick={changeModal}>Sign up</a></p> : <p className="signup-text">Already have an account? <a className="green-text" onClick={changeModal}>Log in</a></p>}
             <div className="lineorline">

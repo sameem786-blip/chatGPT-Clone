@@ -24,6 +24,9 @@ const LoginPage = () => {
     setIsModalOpen(false);
   };
 
+
+
+
   useEffect(() => {
     const currentHeading = typewriterText[index].heading;
     setHeading(currentHeading);
