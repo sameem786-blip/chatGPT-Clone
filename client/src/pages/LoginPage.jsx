@@ -3,9 +3,10 @@ import "./login.css";
 import Logo from "../public/logo.PNG";
 import openai from "../public/openai.png";
 import typewriterText from "../JSON/typeWriterText.json";
-import Modal from "../components/Modal/FullpageModal";
+import Modal from "../components/Modal/FullpageModal"; 
 
 const LoginPage = () => {
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [index, setIndex] = useState(0);
@@ -14,6 +15,29 @@ const LoginPage = () => {
   const [description, setDescription] = useState("");
   const [visibleText, setVisibleText] = useState("");
   const [blinker, setBlinker] = useState(true);
+
+  function getTheme() {
+    if(window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
+      return "dark";
+    } else {
+      return"light";
+    }
+  }
+  
+  const [theme, setTheme] = useState(getTheme);
+
+  useEffect(() => {
+    const updateTheme = () => {
+      const newTheme = getTheme();
+      setTheme(newTheme);
+    };
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateTheme);
+
+    return () => {
+      window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", updateTheme);
+    };
+  }, []);
 
   const openModal = (content) => {
     setModalContent(content);
@@ -63,10 +87,10 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <div className="left">
+      <div className={theme === "dark" ? 'left-dark' : 'left'}>
         <div className="innerContainer">
           <div className="heading">
-            <p className="gptText">ChatGPT</p>
+            <p className="gptText">Chatgpt</p>
             <div className="gptTextCircle"></div>
           </div>
           <div className="typewriter">
@@ -78,7 +102,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className="right">
+      <div className={theme === "dark" ? 'right-dark' : 'right'}>
         <div className="rightInnerContainer">
           <div className="header">
             <p>Get started</p>

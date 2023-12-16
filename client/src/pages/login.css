@@ -1,195 +1,1072 @@
 @font-face {
-  font-family: "Sohne Bold"; /* Provide a name for your font family */
-  src: url("../public/fonts/sohne/TestSöhneBroad/TestSöhneBreit-Halbfett.otf")
-    format("opentype");
+  font-family: "Sohne Bold";
+  /* Provide a name for your font family */
+  src: url("../public/fonts/sohne/TestSöhneBroad/TestSöhneBreit-Halbfett.otf") format("opentype");
 }
+
 @font-face {
-  font-family: "Sohne Narrow"; /* Provide a name for your font family */
-  src: url("../public/fonts/sohne/TestSöhneNarrow/TestSöhneSchmal-Halbfett.otf")
-    format("opentype");
-}
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
+  font-family: "Sohne Narrow";
+  /* Provide a name for your font family */
+  src: url("../public/fonts/sohne/TestSöhneNarrow/TestSöhneSchmal-Halbfett.otf") format("opentype");
 }
 
-.left {
-  width: 60%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 100%;
-  background-color: #ffffdb;
-}
-.left .dark-theme {
-  width: 60%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: 100%;
-  background-color: #ffffdb;
+@media screen and (min-width: 200px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .left {
+    width: 50%;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #ffffdb;
+  }
+
+  .left-dark {
+    width: 50%;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #00002E;
+
+    .innerContainer {
+      .gptText {
+        font-family: "Sohne Bold";
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: #D292FF;
+      }
+
+      .gptTextCircle {
+        border-radius: 50px;
+        background-color: #D292FF;
+        height: 10px;
+        width: 10px;
+      }
+
+      .typewriter {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        color: #D292FF;
+        text-align: left;
+        min-height: 200px;
+        /* Set a minimum height for the description area */
+      }
+
+
+    }
+  }
+
+  .innerContainer {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px;
+    padding-left: 31px;
+  }
+
+  .heading {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gptText {
+    font-family: "Sohne Bold";
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #fe7600;
+  }
+
+  .gptTextCircle {
+    border-radius: 50px;
+    background-color: #fe7600;
+    height: 10px;
+    width: 10px;
+  }
+
+  .typewriter {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #fe7600;
+    text-align: left;
+    min-height: 200px;
+    /* Set a minimum height for the description area */
+  }
+
+  .typewriterHeading {
+    font-size: 30px;
+    font-family: "Sohne Bold";
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 2px;
+    margin-bottom: -1px;
+    height: fit-content;
+  }
+
+  .typewriterDescription {
+    height: 300px;
+    /* Adjust height to match min-height of typewriter */
+    font-size: 25px;
+    font-family: "Sohne Bold";
+    margin-top: -1px;
+    font-weight: 400;
+  }
+
+  .right {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: white;
+  }
+
+  .right-dark {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: #000000;
+
+    .rightInnerContainer {
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .footer {
+        color: white;
+      }
+
+      .termnpolicy {
+        color: white;
+      }
+
+      .footerLink {
+        color: white;
+      }
+
+      .footer-line {
+        color: white;
+      }
+
+      .openailogo {
+        filter: brightness(20);
+      }
+    }
+  }
+
+  .rightInnerContainer {
+    width: 100%;
+    height: 65%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  p {
+    font-family: "Sohne Bold";
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .btnGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .btn {
+    height: 50px;
+    width: 250px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #3c46ff;
+    color: white;
+    font-family: "Sohne Bold";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #0000ff;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    gap: 10px;
+  }
+
+  .openailogo {
+    height: 20px;
+  }
+
+  .termnpolicy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .footerLink {
+    font-family: "Sohne Bold";
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 200;
+    word-spacing: -1px;
+    color: black;
+    line-height: 16px;
+    cursor: pointer;
+  }
+
+  .footer-line {
+    transform: rotate(90deg);
+    width: 5px;
+  }
 }
 
-.innerContainer {
-  width: 100%;
-  height: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 15px;
-  padding-left: 31px;
+@media screen and (min-width: 640px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .left {
+    width: 50%;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #ffffdb;
+  }
+
+  .left-dark {
+    width: 50%;
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #00002E;
+
+    .innerContainer {
+      .gptText {
+        font-family: "Sohne Bold";
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 22px;
+        color: #D292FF;
+      }
+
+      .gptTextCircle {
+        border-radius: 50px;
+        background-color: #D292FF;
+        height: 10px;
+        width: 10px;
+      }
+
+      .typewriter {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        color: #D292FF;
+        text-align: left;
+        min-height: 200px;
+        /* Set a minimum height for the description area */
+      }
+
+
+    }
+  }
+
+  .innerContainer {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px;
+    padding-left: 31px;
+  }
+
+  .heading {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gptText {
+    font-family: "Sohne Bold";
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #fe7600;
+  }
+
+  .gptTextCircle {
+    border-radius: 50px;
+    background-color: #fe7600;
+    height: 10px;
+    width: 10px;
+  }
+
+  .typewriter {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #fe7600;
+    text-align: left;
+    min-height: 200px;
+    /* Set a minimum height for the description area */
+  }
+
+  .typewriterHeading {
+    font-size: 30px;
+    font-family: "Sohne Bold";
+    font-weight: 700;
+    line-height: 38px;
+    letter-spacing: 2px;
+    margin-bottom: -1px;
+    height: fit-content;
+  }
+
+  .typewriterDescription {
+    height: 300px;
+    /* Adjust height to match min-height of typewriter */
+    font-size: 25px;
+    font-family: "Sohne Bold";
+    margin-top: -1px;
+    font-weight: 400;
+  }
+
+  .right {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: white;
+  }
+
+  .right-dark {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: #000000;
+
+    .rightInnerContainer {
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .footer {
+        color: white;
+      }
+
+      .termnpolicy {
+        color: white;
+      }
+
+      .footerLink {
+        color: white;
+      }
+
+      .footer-line {
+        color: white;
+      }
+
+      .openailogo {
+        filter: brightness(20);
+      }
+    }
+  }
+
+  .rightInnerContainer {
+    width: 100%;
+    height: 65%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  p {
+    font-family: "Sohne Bold";
+    font-size: 25px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .btnGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .btn {
+    height: 50px;
+    width: 250px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #3c46ff;
+    color: white;
+    font-family: "Sohne Bold";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background-color: #0000ff;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    gap: 10px;
+  }
+
+  .openailogo {
+    height: 20px;
+  }
+
+  .termnpolicy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .footerLink {
+    font-family: "Sohne Bold";
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 200;
+    word-spacing: -1px;
+    color: black;
+    line-height: 16px;
+    cursor: pointer;
+  }
+
+  .footer-line {
+    transform: rotate(90deg);
+    width: 5px;
+  }
 }
 
-.heading {
-  height: fit-content;
-  width: fit-content;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+@media screen and (min-width: 768px) {
+  .container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+    }
+  
+    .left {
+      width: 50%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: 100%;
+      background-color: #ffffdb;
+    }
+  
+    .left-dark {
+      width: 50%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      height: 100%;
+      background-color: #00002E;
+  
+      .innerContainer {
+        .gptText {
+          font-family: "Sohne Bold";
+          font-weight: 700;
+          font-size: 15px;
+          line-height: 22px;
+          color: #D292FF;
+        }
+  
+        .gptTextCircle {
+          border-radius: 50px;
+          background-color: #D292FF;
+          height: 10px;
+          width: 10px;
+        }
+  
+        .typewriter {
+          width: 80%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          color: #D292FF;
+          text-align: left;
+          min-height: 200px;
+          /* Set a minimum height for the description area */
+        }
+      }
+    }
+  
+    .innerContainer {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 15px;
+      padding-left: 31px;
+      gap: 160px;
+    }
+  
+    .heading {
+      height: fit-content;
+      width: fit-content;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .gptText {
+      font-family: "Sohne Bold";
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 22px;
+      color: #fe7600;
+    }
+  
+    .gptTextCircle {
+      border-radius: 50px;
+      background-color: #fe7600;
+      height: 10px;
+      width: 10px;
+    }
+  
+    .typewriter {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      color: #fe7600;
+      text-align: left;
+      min-height: 400px;
+      /* Set a minimum height for the description area */
+    }
+  
+    .typewriterHeading {
+      font-size: 30px;
+      font-family: "Sohne Bold";
+      font-weight: 700;
+      line-height: 38px;
+      letter-spacing: 2px;
+      margin-bottom: -1px;
+      height: fit-content;
+    }
+  
+    .typewriterDescription {
+      height: 300px;
+      /* Adjust height to match min-height of typewriter */
+      font-size: 25px;
+      font-family: "Sohne Bold";
+      margin-top: -1px;
+      font-weight: 400;
+    }
+  
+    .right {
+      width: 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      height: 100%;
+      background-color: white;
+    }
+  
+    .right-dark {
+      width: 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      height: 100%;
+      background-color: #000000;
+  
+      .rightInnerContainer {
+  
+        .header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: white;
+        }
+  
+        .footer {
+          color: white;
+        }
+  
+        .termnpolicy {
+          color: white;
+        }
+  
+        .footerLink {
+          color: white;
+        }
+  
+        .footer-line {
+          color: white;
+        }
+  
+        .openailogo {
+          filter: brightness(20);
+        }
+      }
+    }
+  
+    .rightInnerContainer {
+      width: 100%;
+      height: 65%;
+      flex-direction: column;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    p {
+      font-family: "Sohne Bold";
+      font-size: 25px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      line-height: 32px;
+    }
+  
+    .btnGroup {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  
+    .btn {
+      height: 50px;
+      width: 150px;
+      border-radius: 5px;
+      border: 0px;
+      background-color: #3c46ff;
+      color: white;
+      font-family: "Sohne Bold";
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      cursor: pointer;
+    }
+  
+    .btn:hover {
+      background-color: #0000ff;
+    }
+  
+    .footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 30px;
+      gap: 10px;
+    }
+  
+    .openailogo {
+      height: 20px;
+    }
+  
+    .termnpolicy {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+  
+    .footerLink {
+      font-family: "Sohne Bold";
+      font-size: 9px;
+      text-decoration: underline;
+      font-weight: 200;
+      word-spacing: -1px;
+      color: black;
+      line-height: 16px;
+      cursor: pointer;
+    }
+  
+    .footer-line {
+      transform: rotate(90deg);
+      width: 5px;
+    }
 }
 
-.gptText {
-  font-family: "Sohne Bold";
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 22px;
-  color: #fe7600;
-}
+@media screen and (min-width: 1024px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  }
 
-.gptTextCircle {
-  border-radius: 50px;
-  background-color: #fe7600;
-  height: 17px;
-  width: 17px;
-}
+  .left {
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #ffffdb;
+  }
 
-.typewriter {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  color: #fe7600;
-  text-align: left;
-  max-height: 200px; /* Set a maximum height for the description area */
-}
+  .left-dark {
+    width: 60%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: 100%;
+    background-color: #00002E;
 
-.typewriterHeading {
-  font-size: 40px;
-  font-family: "Sohne Bold";
-  font-weight: 700;
-  line-height: 48px;
-  letter-spacing: 2px;
-  margin-bottom: -1px;
-  height: fit-content;
-}
+    .innerContainer {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 15px;
+      padding-left: 31px;
+      gap: 120px;
 
-.typewriterDescription {
-  height: 300px; /* Adjust height to match max-height of typewriter */
-  font-size: 35px;
-  font-family: "Sohne Bold";
-  margin-top: -1px;
-  font-weight: 400; /* Prevent text wrapping */
-}
-.right {
-  width: 40%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  height: 100%;
-  background-color: white;
-}
+      .gptText {
+        font-family: "Sohne Bold";
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 22px;
+        color: #D292FF;
+      }
 
-.rightInnerContainer {
-  width: 100%;
-  height: 65%;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+      .gptTextCircle {
+        border-radius: 50px;
+        background-color: #D292FF;
+        height: 17px;
+        width: 17px;
+      }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+      .typewriter {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        color: #D292FF;
+        text-align: left;
+        min-height: 400px;
+        /* Set a minimum height for the description area */
+      }
 
-p {
-  font-family: "Sohne Bold";
-  font-size: 30px;
-  letter-spacing: 1px;
-  font-weight: 600;
-  line-height: 32px;
-}
 
-.btnGroup {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
+    }
+  }
 
-.btn {
-  height: 50px;
-  width: 200px;
-  border-radius: 5px;
-  border: 0px;
-  background-color: #3c46ff;
-  color: white;
-  font-family: "Sohne Bold";
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-}
+  .innerContainer {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 15px;
+    padding-left: 31px;
+    gap: 120px;
+  }
 
-.btn:hover {
-  background-color: #0000ff;
-  cursor: pointer;
-}
+  .heading {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 30px;
-  gap: 10px;
-}
+  .gptText {
+    font-family: "Sohne Bold";
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 22px;
+    color: #fe7600;
+  }
 
-.openailogo {
-  height: 20px;
-}
+  .gptTextCircle {
+    border-radius: 50px;
+    background-color: #fe7600;
+    height: 17px;
+    width: 17px;
+  }
 
-.termnpolicy {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-}
+  .typewriter {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: #fe7600;
+    text-align: left;
+    min-height: 400px;
+    /* Set a minimum height for the description area */
+  }
 
-.footerLink {
-  font-family: "Sohne Bold";
-  font-size: 12px;
-  text-decoration: underline;
-  font-weight: 400;
-  word-spacing: -1px;
-  color: black;
-  line-height: 16px;
-}
+  .typewriterHeading {
+    font-size: 40px;
+    font-family: "Sohne Bold";
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: 2px;
+    margin-bottom: -1px;
+    height: fit-content;
+  }
 
-.footer-line {
-  transform: rotate(90deg);
-  width: 5px;
+  .typewriterDescription {
+    height: 300px;
+    /* Adjust height to match min-height of typewriter */
+    font-size: 35px;
+    font-family: "Sohne Bold";
+    margin-top: -1px;
+    font-weight: 400;
+    /* Prevent text wrapping */
+  }
+
+  .right {
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: white;
+  }
+
+  .right-dark {
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    background-color: #000000;
+
+    .rightInnerContainer {
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .footer {
+        color: white;
+      }
+
+      .termnpolicy {
+        color: white;
+      }
+
+      .footerLink {
+        color: white;
+      }
+
+      .footer-line {
+        color: white;
+      }
+
+      .openailogo {
+        filter: brightness(20);
+      }
+    }
+  }
+
+  .rightInnerContainer {
+    width: 100%;
+    height: 65%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  p {
+    font-family: "Sohne Bold";
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  .btnGroup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .btn {
+    height: 50px;
+    width: 200px;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #3c46ff;
+    color: white;
+    font-family: "Sohne Bold";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .btn:hover {
+    background-color: #0000ff;
+    cursor: pointer;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    gap: 10px;
+  }
+
+  .openailogo {
+    height: 20px;
+  }
+
+  .termnpolicy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .footerLink {
+    font-family: "Sohne Bold";
+    font-size: 12px;
+    text-decoration: underline;
+    font-weight: 400;
+    word-spacing: -1px;
+    color: black;
+    line-height: 16px;
+  }
+
+  .footer-line {
+    transform: rotate(90deg);
+    width: 5px;
+  }
+
 }
 
 

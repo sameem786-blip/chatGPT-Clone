@@ -8,12 +8,18 @@ import GoogleIcon from '../../public/search.png';
 import AppleIcon from '../../public/apple.png'; 
 
 const FullpageModal = ({ isOpen, content, onClose }) => {
+  const [email, setEmail] = useState("");
 
   const [modalContent, setModalContent] = useState(content)
   const modalClass = isOpen ? "modal-container open" : "modal-container";
 
   const changeModal = () => {
     setModalContent(modalContent === "login" ? "signup" : "login"); // Update content state
+  };
+
+  const handleEmailChange = (event) => {
+    event.preventDefault();
+    setEmail(event.target.value); // Update the email state with the input value
   };
 
   return (
@@ -25,8 +31,8 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
           </div>
           <div className="authfields">
             {modalContent == "login" ? <p className="welcomeText">Welcome back</p> : <p className="welcomeText">Create your account</p>}
-            <input className="inp" id="emailInput" placeholder=""></input>
-            <label for="emailInput" class="input-label">Email address</label>
+            <input className="inp" id="emailInput" placeholder="" onChange={handleEmailChange}></input>
+            <label for="emailInput" className="input-label" >Email address</label>
             <button className="auth-btn">Continue</button>
             {modalContent === "login" ? <p className="signup-text">Don't have an account? <a className="green-text" onClick={changeModal}>Sign up</a></p> : <p className="signup-text">Already have an account? <a className="green-text" onClick={changeModal}>Log in</a></p>}
             <div className="lineorline">
