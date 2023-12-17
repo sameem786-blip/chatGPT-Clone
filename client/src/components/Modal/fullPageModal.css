@@ -846,5 +846,38 @@
       background-color: #fff;
       color: #0E9272;
     }
+    .stage-2-email-label{
+      position: absolute;
+        left: 20%;
+        transform: translateY(-190%);
+        color: #C2C8D0;
+        pointer-events: none;
+        transition: 0.3s ease-out;
+    }
+    .stage-2-password-label{
+      position: absolute;
+        left: 20%;
+        transform: translateY(60%);
+        color: #C2C8D0;
+        pointer-events: none;
+        transition: 0.3s ease-out;
+    }
+
+        .inp:focus+.stage-2-password-label {
+          transform: translateY(-40%) scale(0.7);
+          left: 100px;
+          background-color: #fff;
+          color: #0E9272;
+        }
+        .inp:focus+.stage-2-email-label {
+          transform: translateY(-290%) scale(0.7);
+          left: 100px;
+          background-color: #fff;
+          color: #0E9272;
+        }
+}
+
+.hidden{
+  display: none;
 }
 
