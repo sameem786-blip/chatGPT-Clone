@@ -1,6 +1,7 @@
 const User = require('../schemas/User');
 
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 //sign up
 exports.signup = async (req, res) => {
@@ -63,7 +64,12 @@ exports.login = async (req, res) => {
 
         const { encryptedPassword, ...userWithoutPassword } = userResponse.toObject();
 
-        res.status(200).json({
+        const token = jwt.sign({ id: userResponse.id }, "secret-key");
+
+        res.cookie("clone-token",token, {
+            httpOnly: true,
+            sameSite: 'None',
+        }).status(200).json({
             message: "Login successful",
             user: userWithoutPassword
         });

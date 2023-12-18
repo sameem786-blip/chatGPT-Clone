@@ -7,7 +7,14 @@ import MicrosoftIcon from '../../public/microsoft.png';
 import GoogleIcon from '../../public/search.png'; 
 import AppleIcon from '../../public/apple.png'; 
 
+import Axios from 'axios';
+
 const FullpageModal = ({ isOpen, content, onClose }) => {
+
+  const axiosInstance = Axios.create({
+  withCredentials: true,
+  });
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [stage, setStage] = useState("email");
@@ -42,9 +49,27 @@ const changeModal = () => {
     setPassValueExists(!!event.target.value);
   };
 
-  const handleSignIn = () => {
+  const handleSignIn = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axiosInstance.post('http://localhost:4000/auth/user/login', {
+      email: email,
+      password: password
+    });
 
+    // Handle the response accordingly
+    console.log('Login successful', response.data);
+
+    localStorage.setItem("user", JSON.stringify(response.data.user));
+    
+    // Reset the email and password fields after successful login
+    setEmail('');
+    setPassword('');
+  } catch (error) {
+    // Handle errors here
+    console.error('Login failed', error.response.status);
   }
+  };
 
   const handleSignUp = () => {
 
