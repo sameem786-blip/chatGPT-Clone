@@ -18,6 +18,7 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [stage, setStage] = useState("email");
+  const [invalidCredentials, setInvalidCredentials] = useState(false);
 
   const [emailValueExists, setEmailValueExists] = useState(false);
   const [passValueExists, setPassValueExists] = useState(false);
@@ -65,14 +66,38 @@ const changeModal = () => {
     // Reset the email and password fields after successful login
     setEmail('');
     setPassword('');
+    setInvalidCredentials(false)
   } catch (error) {
+
+    setInvalidCredentials(true)
     // Handle errors here
     console.error('Login failed', error.response.status);
+
   }
   };
 
-  const handleSignUp = () => {
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axiosInstance.post('http://localhost:4000/auth/user/signup', {
+        email: email,
+        password: password
+      });
 
+      // Handle the response accordingly
+      console.log('Signup successful', response.data);
+      setEmail('');
+      setPassword('');
+      setModalContent("login")
+      // Reset the email and password fields after successful login
+      
+    } catch (error) {
+
+        setInvalidCredentials(true)
+      // Handle errors here
+      console.error('signup failed', error.response.status);
+
+    }
   }
 
   return (
@@ -106,8 +131,9 @@ const changeModal = () => {
                 <input className="inp" id="emailInput" placeholder="" value={email } onChange={handleEmailChange} type="email"></input>
                   <label className={`stage-2-email-label ${emailValueExists && stage === "password" ? "hidden" : ""}`} >Email address</label>
                 <input className="inp" id="emailInput" placeholder="" value={password} onChange={handlePasswordChange} type="password"></input>
-                <label className={`stage-2-password-label ${passValueExists ? "hidden" : ""}`} >Password</label>
-                <button className="auth-btn" onClick={handleSignIn}>Continue</button>
+                  <label className={`stage-2-password-label ${passValueExists ? "hidden" : ""}`} >Password</label>
+                  {modalContent === "login" ? <p className={`${invalidCredentials ? "invalid-text" : "hidden"}`} >Invalid email or password</p> : <p className={`${invalidCredentials ? "invalid-text" : "hidden"}`} >Account already exists</p>}
+                <button className="auth-btn" onClick={modalContent == "login" ? handleSignIn : handleSignUp}>Continue</button>
                 {modalContent === "login" ? <p className="signup-text"><a className="green-text">Forgot Password</a></p> : <p className="signup-text">Already have an account? <a className="green-text" onClick={changeModal}>Log in</a></p>}
                 
                   </>
