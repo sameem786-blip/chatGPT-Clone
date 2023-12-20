@@ -1,0 +1,17 @@
+.Dashboard-Grid-Container {
+  height: fit-content;
+}
+.Child-Grid-Container {
+  height: fit-content;
+}
+
+.Child-Grid-Item {
+  height: 100vh;
+  padding: 10px;
+}
+
+.Item-Child-Grid-Item {
+  border: 2px solid red;
+  height: 40px;
+  cursor: pointer;
+}

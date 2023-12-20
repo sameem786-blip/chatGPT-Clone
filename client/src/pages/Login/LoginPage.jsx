@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./login.css";
-import Logo from "../public/logo.PNG";
-import openai from "../public/openai.png";
-import typewriterText from "../JSON/typeWriterText.json";
-import Modal from "../components/Modal/FullpageModal"; 
+import Logo from "../../public/logo.PNG";
+import openai from "../../public/openai.png";
+import typewriterText from "../../JSON/typeWriterText.json";
+import Modal from "../../components/Modal/FullpageModal";
 
 const LoginPage = () => {
-  
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [index, setIndex] = useState(0);
@@ -17,13 +16,16 @@ const LoginPage = () => {
   const [blinker, setBlinker] = useState(true);
 
   function getTheme() {
-    if(window.matchMedia && window.matchMedia("(prefers-color-scheme:dark)").matches) {
+    if (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme:dark)").matches
+    ) {
       return "dark";
     } else {
-      return"light";
+      return "light";
     }
   }
-  
+
   const [theme, setTheme] = useState(getTheme);
 
   useEffect(() => {
@@ -32,10 +34,14 @@ const LoginPage = () => {
       setTheme(newTheme);
     };
 
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", updateTheme);
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", updateTheme);
 
     return () => {
-      window.matchMedia("(prefers-color-scheme: dark)").removeEventListener("change", updateTheme);
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", updateTheme);
     };
   }, []);
 
@@ -47,9 +53,6 @@ const LoginPage = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-
-
 
   useEffect(() => {
     const currentHeading = typewriterText[index].heading;
@@ -87,7 +90,7 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <div className={theme === "dark" ? 'left-dark' : 'left'}>
+      <div className={theme === "dark" ? "left-dark" : "left"}>
         <div className="innerContainer">
           <div className="heading">
             <p className="gptText">Chatgpt</p>
@@ -102,7 +105,7 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
-      <div className={theme === "dark" ? 'right-dark' : 'right'}>
+      <div className={theme === "dark" ? "right-dark" : "right"}>
         <div className="rightInnerContainer">
           <div className="header">
             <p>Get started</p>
@@ -113,7 +116,11 @@ const LoginPage = () => {
               <button className="btn" onClick={() => openModal("signup")}>
                 Sign up
               </button>
-              <Modal isOpen={isModalOpen} onClose={closeModal} content={modalContent}/>
+              <Modal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                content={modalContent}
+              />
             </div>
           </div>
           <div className="footer">
