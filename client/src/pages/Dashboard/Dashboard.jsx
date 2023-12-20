@@ -7,6 +7,15 @@ import Grid from "@mui/material/Grid";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
+  transition: "background-color 0.3s",
+}));
+
+const Item1 = styled(Paper)(({ theme }) => ({
+  borderRadius: "10px", // Transition for smoother hover effect
+  "&:hover": {
+    backgroundColor: "#202123", // Change this to your desired hover background color
+    color: "white",
+  },
 }));
 
 const Dashboard = () => {
@@ -19,26 +28,18 @@ const Dashboard = () => {
             style={{ backgroundColor: "black", color: "white" }}
           >
             <Grid item xs={12} className="Item-Child-Grid-Container">
-              <Item
+              <Item1
                 className="Item-Child-Grid-Item"
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  borderRadius: "10px",
-                }}
+                elevation={0}
               >
                 Hello
-              </Item>
-              <Item
+              </Item1>
+              <Item1
                 className="Item-Child-Grid-Item"
-                style={{
-                  backgroundColor: "black",
-                  color: "white",
-                  borderRadius: "10px",
-                }}
+                elevation={0}
               >
                 World
-              </Item>
+              </Item1>
             </Grid>
           </Item>
         </Grid>
