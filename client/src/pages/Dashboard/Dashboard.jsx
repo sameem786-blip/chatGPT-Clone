@@ -8,6 +8,7 @@ import openaispiral from "../../public/openaispiral.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import StartIcon from "@mui/icons-material/Start";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
@@ -24,6 +25,7 @@ const Item1 = styled(Paper)(({ theme }) => ({
 }));
 
 const Dashboard = () => {
+  const [newChat,setNewChat] = useState(false)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
@@ -35,9 +37,6 @@ const Dashboard = () => {
             <Grid
               item
               xs={12}
-              direction="column"
-              justifyContent="space-between"
-              alignItems="center"
               className="Item-Child-Grid-Container"
             >
               <Item1 className="Item-Child-Grid-Item" elevation={0}>
@@ -74,7 +73,43 @@ const Dashboard = () => {
           </Item>
         </Grid>
         <Grid item xs={10} className="Child-Grid-Container">
-          <Item className="Child-Grid-Item">xs=4</Item>
+          <Item className="Child-Grid-Item" style={{ backgroundColor: "#343541" }}>
+            <Grid
+              item
+              xs={2}
+              className="Item-Child-Grid-Container"
+            >
+              <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                <div className="chatgpt-heading">
+                  <p className="heading">ChatGPT</p>
+                  <p className="light-text">3.5</p>
+                  <KeyboardArrowDownIcon className="light-text"/>
+                  
+                </div>
+              </Item1>
+              
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              className="Item-Child-Grid-Container"
+            >
+              <Item className="Hero-Item-Child-Grid-Item" elevation={0} style={{backgroundColor:"transparent"}}>
+                <div className="hero-container">
+                  <div className="hero-openai-logo-circle">
+                      <img
+                        className="left-openai-spiral"
+                        src={openaispiral}
+                        alt="openai"
+                    ></img>
+                    </div>
+                    <p className="hero-text">How can I help you today?</p>
+                  
+                </div>
+              </Item>
+              
+            </Grid>
+          </Item>
         </Grid>
       </Grid>
     </Box>
