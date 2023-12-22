@@ -107,6 +107,35 @@ const Dashboard = () => {
                   
                 </div>
               </Item>
+              <Item className="Hero-Item-Child-Grid-Item" elevation={0} style={{backgroundColor:"transparent"}}>
+                <div className="chat-container">
+                  <div className="chat-row">
+                    <div className="custom-chat">
+                      {/* <p className="custom-chat-heading">Plan a trip</p>
+                      <p className="custom-chat-prompt">to explore the Madagascar wildlife on a budget</p> */}
+                    </div>
+                    <div className="custom-chat">
+                      {/* <p className="custom-chat-heading">Design a database schema</p>
+                      <p className="custom-chat-prompt">for an online merch store</p> */}
+                    </div>
+                  </div>
+                  <div className="chat-row">
+                    <div className="custom-chat">
+                      {/* <p className="custom-chat-heading">Create a personal webpage for me</p>
+                      <p className="custom-chat-prompt">after asking me three questions</p> */}
+                    </div>
+                    <div className="custom-chat">
+                      {/* <p className="custom-chat-heading">Give me ideas</p>
+                      <p className="custom-chat-prompt">about how to plan my New Years resolutions</p> */}
+                    </div>
+                  </div>
+                  <div className="chat-row">
+                    <div className="custom-chat">
+                      {/* <input className="custom-chat-input"></input> */}
+                    </div>
+                  </div>
+                </div>
+              </Item>
               
             </Grid>
           </Item>
