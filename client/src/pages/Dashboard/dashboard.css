@@ -165,6 +165,10 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.custom-chat:hover{
+  background: #2a2b35;
+}
+
 .custom-chat-heading{
   width: fit-content;
   font-size: 1vw;
@@ -227,7 +231,7 @@
   border-radius: 5px;
   cursor: pointer;
   background: #56565a;
-  color: #343541;;
+  color: #343541;
   border: 1px solid #56565a;
   padding: 4px;
 }
