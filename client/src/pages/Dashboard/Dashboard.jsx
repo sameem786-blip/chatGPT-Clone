@@ -9,6 +9,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import StartIcon from "@mui/icons-material/Start";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
@@ -111,27 +112,28 @@ const Dashboard = () => {
                 <div className="chat-container">
                   <div className="chat-row">
                     <div className="custom-chat">
-                      {/* <p className="custom-chat-heading">Plan a trip</p>
-                      <p className="custom-chat-prompt">to explore the Madagascar wildlife on a budget</p> */}
+                      <p className="custom-chat-heading multi-line-ellipsis">Plan a trip</p>
+                      <p className="custom-chat-prompt multi-line-ellipsis">to explore the Madagascar wildlife on a budget</p>
                     </div>
                     <div className="custom-chat">
-                      {/* <p className="custom-chat-heading">Design a database schema</p>
-                      <p className="custom-chat-prompt">for an online merch store</p> */}
-                    </div>
-                  </div>
-                  <div className="chat-row">
-                    <div className="custom-chat">
-                      {/* <p className="custom-chat-heading">Create a personal webpage for me</p>
-                      <p className="custom-chat-prompt">after asking me three questions</p> */}
-                    </div>
-                    <div className="custom-chat">
-                      {/* <p className="custom-chat-heading">Give me ideas</p>
-                      <p className="custom-chat-prompt">about how to plan my New Years resolutions</p> */}
+                      <p className="custom-chat-heading">Design a database schema</p>
+                      <p className="custom-chat-prompt">for an online merch store</p>
                     </div>
                   </div>
                   <div className="chat-row">
                     <div className="custom-chat">
-                      {/* <input className="custom-chat-input"></input> */}
+                      <p className="custom-chat-heading">Create a personal webpage for me</p>
+                      <p className="custom-chat-prompt">after asking me three questions</p>
+                    </div>
+                    <div className="custom-chat">
+                      <p className="custom-chat-heading">Give me ideas</p>
+                      <p className="custom-chat-prompt">about how to plan my New Years resolutions</p>
+                    </div>
+                  </div>
+                  <div className="chat-row">
+                    <div className="custom-input-div">
+                      <input className="custom-chat-input" placeholder="Message ChatGPT..." ></input>
+                      <ArrowUpwardIcon className="submit-prompt-btn"/>
                     </div>
                   </div>
                 </div>
