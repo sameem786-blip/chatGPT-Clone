@@ -10,6 +10,7 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import StartIcon from "@mui/icons-material/Start";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import GreenOpenAi from "../../public/greenopenai.webp"
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
@@ -26,7 +27,8 @@ const Item1 = styled(Paper)(({ theme }) => ({
 }));
 
 const Dashboard = () => {
-  const [newChat,setNewChat] = useState(false)
+  const [newChat, setNewChat] = useState(false);
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
@@ -73,6 +75,7 @@ const Dashboard = () => {
             </Grid>
           </Item>
         </Grid>
+        {newChat ? (
         <Grid item xs={10} className="Child-Grid-Container">
           <Item className="Child-Grid-Item" style={{ backgroundColor: "#343541" }}>
             <Grid
@@ -93,7 +96,7 @@ const Dashboard = () => {
             <Grid
               item
               xs={12}
-              className="Item-Child-Grid-Container"
+                className="Item-Child-Grid-Container"    
             >
               <Item className="Hero-Item-Child-Grid-Item" elevation={0} style={{backgroundColor:"transparent"}}>
                 <div className="hero-container">
@@ -142,6 +145,54 @@ const Dashboard = () => {
             </Grid>
           </Item>
         </Grid>
+        ) : (<Grid item xs={10} className="Child-Grid-Container">
+          <Item className="Child-Grid-Item" style={{ backgroundColor: "#343541" }}>
+            <Grid
+              item
+              xs={2}
+              className="Item-Child-Grid-Container"
+            >
+              <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                <div className="chatgpt-heading">
+                  <p className="heading">ChatGPT</p>
+                  <p className="light-text">3.5</p>
+                  <KeyboardArrowDownIcon className="light-text"/>
+                  
+                </div>
+              </Item1>
+              
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              className="Item-Child-Grid-Container"
+            >
+              <Item className="Hero-Item-Child-Grid-Item-short" elevation={0} style={{backgroundColor:"transparent"}}>
+                  <div className="chat-group-container">
+                    <div className="prompt">
+                      <AccountCircleIcon className="pr-icon"/><p className="prompt-text">wxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcecdcwxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcecdc</p>
+                    </div>
+                    <div className="response">
+                      <img src={GreenOpenAi } className="pr-icon"></img>
+                      <p className="response-text">wbckjwdbi</p>
+                    </div>
+                  
+                </div>
+              </Item>
+              <Item className="Hero-Item-Child-Grid-Item-short" elevation={0} style={{backgroundColor:"transparent"}}>
+                <div className="chat-container">
+                  <div className="chat-row">
+                    <div className="custom-input-div-short">
+                      <input className="custom-chat-input" placeholder="Message ChatGPT..." ></input>
+                      <ArrowUpwardIcon className="submit-prompt-btn"/>
+                    </div>
+                  </div>
+                </div>
+              </Item>
+              
+            </Grid>
+          </Item>
+        </Grid>)}
       </Grid>
     </Box>
   );
