@@ -26,6 +26,24 @@ const Item1 = styled(Paper)(({ theme }) => ({
   },
 }));
 
+const chat = {
+  prompt: "Suggest me some topics for an article on javascript",
+  response: `Certainly! Here are some potential topics for an article on JavaScript:
+
+    Introduction to JavaScript: Cover the basics, history, and evolution of JavaScript.
+    ES6 Features: Discuss various ES6 features like arrow functions, template literals, destructuring, etc.
+    Asynchronous JavaScript: Explore asynchronous programming, callbacks, promises, async/await.
+    Functional Programming in JavaScript: Explain functional programming concepts using JavaScript.
+    JavaScript Frameworks: Dive into popular frameworks like React, Angular, or Vue.js, and their key features.
+    Data Structures and Algorithms in JavaScript: Implement common data structures and algorithms using JavaScript.
+    JavaScript Best Practices: Share best practices for writing clean, efficient, and maintainable code.
+    Testing in JavaScript: Cover different testing frameworks like Jest or Mocha for JavaScript applications.
+    JavaScript and APIs: Explain how to use JavaScript to interact with different APIs (e.g., RESTful APIs).
+    JavaScript Security: Discuss common security vulnerabilities and best practices in JavaScript.
+
+Choose a topic that aligns with your interests and expertise, or one that you think would be valuable to your audience!`
+}
+
 const Dashboard = () => {
   const [newChat, setNewChat] = useState(false);
   
@@ -170,11 +188,11 @@ const Dashboard = () => {
               <Item className="Hero-Item-Child-Grid-Item-short" elevation={0} style={{backgroundColor:"transparent"}}>
                   <div className="chat-group-container">
                     <div className="prompt">
-                      <AccountCircleIcon className="pr-icon"/><p className="prompt-text">wxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcecdcwxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxcecdc</p>
+                      <AccountCircleIcon className="pr-icon" /><p className="prompt-text"><span className="sender-name">You</span>{chat.prompt }</p>
                     </div>
                     <div className="response">
                       <img src={GreenOpenAi } className="pr-icon"></img>
-                      <p className="response-text">wbckjwdbi</p>
+                      <p className="response-text"><span className="sender-name">ChatGPT</span>{chat.response}</p>
                     </div>
                   
                 </div>
