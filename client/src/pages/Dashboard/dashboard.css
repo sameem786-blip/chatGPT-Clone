@@ -74,7 +74,7 @@
   background-color: black;
 }
 
-.chatgpt-heading{
+.chatgpt-heading {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -84,17 +84,17 @@
   width: 100%;
 }
 
-.heading{
+.heading {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
-.light-text{
-  font-family:Arial, Helvetica, sans-serif;
+.light-text {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
-  color: #C5C5D2;
+  color: #c5c5d2;
 }
 
-.Hero-Item-Child-Grid-Item{
+.Hero-Item-Child-Grid-Item {
   margin-top: 30px;
   height: 40vh;
   display: flex;
@@ -104,17 +104,17 @@
   border: 2px solid red;
 }
 
-.hero-container{
+.hero-container {
   display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    height: 100%;
-    width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 100%;
+  width: 100%;
 }
 
-.hero-openai-logo-circle{
+.hero-openai-logo-circle {
   background-color: white;
   height: 80px;
   width: 80px;
@@ -124,36 +124,34 @@
   justify-content: center;
 }
 
-.hero-text{
+.hero-text {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   font-size: larger;
-
 }
 
-.chat-container{
+.chat-container {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  width: clamp(100%,100%,100%);
+  width: clamp(100%, 100%, 100%);
   height: 100%;
   gap: 15px;
 }
 
-.chat-row{
-  display:flex;
-  flex-direction:row ;
+.chat-row {
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 70%;
   height: 25%;
   gap: 10px;
-
 }
 
-.custom-chat{
-  border: 1px solid #C5C5D2;
+.custom-chat {
+  border: 1px solid #c5c5d2;
   text-align: left;
   padding: 0;
   margin: 0;
@@ -163,14 +161,14 @@
   padding-left: 10px;
   padding-right: 10px;
   width: 50%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.custom-chat:hover{
+.custom-chat:hover {
   background: #2a2b35;
 }
 
-.custom-chat-heading{
+.custom-chat-heading {
   width: fit-content;
   font-size: 1vw;
   padding: 0;
@@ -178,40 +176,40 @@
   margin: 0;
   height: 25px;
   text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   white-space: nowrap;
 }
-.custom-chat-prompt{
+.custom-chat-prompt {
   width: fit-content;
   font-size: 1vw;
   font-weight: 400;
   padding: 0;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.custom-input-div{
-  border: 1px solid #C5C5D2;
-    text-align: left;
-    padding: 0;
-    margin: 0;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.custom-input-div {
+  border: 1px solid #c5c5d2;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.custom-chat-input{
+.custom-chat-input {
   background: transparent;
   color: white;
   outline: none;
@@ -219,14 +217,10 @@
   width: 100%;
   height: 100%;
   font-size: large;
-  font-family: 'Segoe UI',
-    Tahoma,
-    Geneva,
-    Verdana,
-    sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.submit-prompt-btn{
+.submit-prompt-btn {
   width: 20%;
   height: 100%;
   border-radius: 5px;
@@ -237,10 +231,10 @@
   padding: 4px;
 }
 
-.submit-prompt-btn:hover{
-  border: 1px solid #C5C5D2;
-  background:#343541;
-  color: #C5C5D2;
+.submit-prompt-btn:hover {
+  border: 1px solid #c5c5d2;
+  background: #343541;
+  color: #c5c5d2;
 }
 
 .Hero-Item-Child-Grid-Item-short {
@@ -253,7 +247,7 @@
 }
 
 .custom-input-div-short {
-  border: 1px solid #C5C5D2;
+  border: 1px solid #c5c5d2;
   text-align: left;
   padding: 0;
   margin: 0;
@@ -263,32 +257,39 @@
   padding-left: 10px;
   padding-right: 10px;
   width: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.chat-group-container{
+.chat-group-container {
   height: 70vh;
 }
 
-.chat-group-container{
-  border: 2px solid purple;
+.chat-group-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  overflow:auto;
-
+  overflow: auto;
 }
 
-.prompt{
+.chat-group-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.chat-group-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.prompt {
   color: white;
   text-align: left;
-  margin-top: 15%;
+  margin-top: 5%;
   padding-left: 20px;
   padding-right: 20px;
   display: flex;
@@ -301,47 +302,46 @@
   overflow-wrap: break-word;
 }
 
-.response{
+.response {
   color: white;
-    text-align: left;
-    height: fit-content;
-    margin: 0;
-    padding-left: 20px;
-      padding-right: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 60%;
+  text-align: left;
+  height: fit-content;
+  margin: 0;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 60%;
 }
 
-.prompt-text{
+.prompt-text {
   font-size: 1vw;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   max-width: calc(100% - 30px);
   display: flex;
   flex-direction: column;
-  
 }
 
-.response-text{
+.response-text {
   font-size: 1vw;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-      padding: 0;
-      max-width: calc(100% - 30px);
-      display: flex;
-        flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  max-width: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
 }
 
-.pr-icon{
+.pr-icon {
   height: 20px;
   margin-top: 1%;
 }
 
-.sender-name{
+.sender-name {
   font-weight: 800;
 }

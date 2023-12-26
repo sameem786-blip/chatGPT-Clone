@@ -8,9 +8,9 @@ import openaispiral from "../../public/openaispiral.png";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import StartIcon from "@mui/icons-material/Start";
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
-import GreenOpenAi from "../../public/greenopenai.webp"
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import GreenOpenAi from "../../public/greenopenai.webp";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
@@ -41,12 +41,23 @@ const chat = {
     JavaScript and APIs: Explain how to use JavaScript to interact with different APIs (e.g., RESTful APIs).
     JavaScript Security: Discuss common security vulnerabilities and best practices in JavaScript.
 
-Choose a topic that aligns with your interests and expertise, or one that you think would be valuable to your audience!`
-}
+Choose a topic that aligns with your interests and expertise, or one that you think would be valuable to your audience!`,
+};
 
 const Dashboard = () => {
   const [newChat, setNewChat] = useState(false);
-  
+
+  const handleNewChatTrigger = () => {
+    setNewChat(true);
+  };
+
+  const handleSubmitNewPrompt = () => {
+    if (!newChat) {
+    } else {
+      setNewChat(false);
+    }
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
@@ -55,11 +66,7 @@ const Dashboard = () => {
             className="Child-Grid-Item"
             style={{ backgroundColor: "black", color: "white" }}
           >
-            <Grid
-              item
-              xs={12}
-              className="Item-Child-Grid-Container"
-            >
+            <Grid item xs={12} className="Item-Child-Grid-Container">
               <Item1 className="Item-Child-Grid-Item" elevation={0}>
                 <div className="item-div">
                   <div className="left-alignment">
@@ -94,123 +101,172 @@ const Dashboard = () => {
           </Item>
         </Grid>
         {newChat ? (
-        <Grid item xs={10} className="Child-Grid-Container">
-          <Item className="Child-Grid-Item" style={{ backgroundColor: "#343541" }}>
-            <Grid
-              item
-              xs={2}
-              className="Item-Child-Grid-Container"
+          <Grid item xs={10} className="Child-Grid-Container">
+            <Item
+              className="Child-Grid-Item"
+              style={{ backgroundColor: "#343541" }}
             >
-              <Item1 className="Item-Child-Grid-Item" elevation={0}>
-                <div className="chatgpt-heading">
-                  <p className="heading">ChatGPT</p>
-                  <p className="light-text">3.5</p>
-                  <KeyboardArrowDownIcon className="light-text"/>
-                  
-                </div>
-              </Item1>
-              
-            </Grid>
-            <Grid
-              item
-              xs={12}
-                className="Item-Child-Grid-Container"    
-            >
-              <Item className="Hero-Item-Child-Grid-Item" elevation={0} style={{backgroundColor:"transparent"}}>
-                <div className="hero-container">
-                  <div className="hero-openai-logo-circle">
+              <Grid item xs={2} className="Item-Child-Grid-Container">
+                <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                  <div className="chatgpt-heading">
+                    <p className="heading">ChatGPT</p>
+                    <p className="light-text">3.5</p>
+                    <KeyboardArrowDownIcon className="light-text" />
+                  </div>
+                </Item1>
+              </Grid>
+              <Grid item xs={12} className="Item-Child-Grid-Container">
+                <Item
+                  className="Hero-Item-Child-Grid-Item"
+                  elevation={0}
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <div className="hero-container">
+                    <div className="hero-openai-logo-circle">
                       <img
                         className="left-openai-spiral"
                         src={openaispiral}
                         alt="openai"
-                    ></img>
+                      ></img>
                     </div>
                     <p className="hero-text">How can I help you today?</p>
-                  
-                </div>
-              </Item>
-              <Item className="Hero-Item-Child-Grid-Item" elevation={0} style={{backgroundColor:"transparent"}}>
-                <div className="chat-container">
-                  <div className="chat-row">
-                    <div className="custom-chat">
-                      <p className="custom-chat-heading multi-line-ellipsis">Plan a trip</p>
-                      <p className="custom-chat-prompt multi-line-ellipsis">to explore the Madagascar wildlife on a budget</p>
+                  </div>
+                </Item>
+                <Item
+                  className="Hero-Item-Child-Grid-Item"
+                  elevation={0}
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <div className="chat-container">
+                    <div className="chat-row">
+                      <div className="custom-chat">
+                        <p className="custom-chat-heading multi-line-ellipsis">
+                          Plan a trip
+                        </p>
+                        <p className="custom-chat-prompt multi-line-ellipsis">
+                          to explore the Madagascar wildlife on a budget
+                        </p>
+                      </div>
+                      <div className="custom-chat">
+                        <p className="custom-chat-heading">
+                          Design a database schema
+                        </p>
+                        <p className="custom-chat-prompt">
+                          for an online merch store
+                        </p>
+                      </div>
                     </div>
-                    <div className="custom-chat">
-                      <p className="custom-chat-heading">Design a database schema</p>
-                      <p className="custom-chat-prompt">for an online merch store</p>
+                    <div className="chat-row">
+                      <div className="custom-chat">
+                        <p className="custom-chat-heading">
+                          Create a personal webpage for me
+                        </p>
+                        <p className="custom-chat-prompt">
+                          after asking me three questions
+                        </p>
+                      </div>
+                      <div className="custom-chat">
+                        <p className="custom-chat-heading">Give me ideas</p>
+                        <p className="custom-chat-prompt">
+                          about how to plan my New Years resolutions
+                        </p>
+                      </div>
+                    </div>
+                    <div className="chat-row">
+                      <div className="custom-input-div">
+                        <input
+                          className="custom-chat-input"
+                          placeholder="Message ChatGPT..."
+                        ></input>
+                        <ArrowUpwardIcon className="submit-prompt-btn" />
+                      </div>
                     </div>
                   </div>
-                  <div className="chat-row">
-                    <div className="custom-chat">
-                      <p className="custom-chat-heading">Create a personal webpage for me</p>
-                      <p className="custom-chat-prompt">after asking me three questions</p>
-                    </div>
-                    <div className="custom-chat">
-                      <p className="custom-chat-heading">Give me ideas</p>
-                      <p className="custom-chat-prompt">about how to plan my New Years resolutions</p>
-                    </div>
-                  </div>
-                  <div className="chat-row">
-                    <div className="custom-input-div">
-                      <input className="custom-chat-input" placeholder="Message ChatGPT..." ></input>
-                      <ArrowUpwardIcon className="submit-prompt-btn"/>
-                    </div>
-                  </div>
-                </div>
-              </Item>
-              
-            </Grid>
-          </Item>
-        </Grid>
-        ) : (<Grid item xs={10} className="Child-Grid-Container">
-          <Item className="Child-Grid-Item" style={{ backgroundColor: "#343541" }}>
-            <Grid
-              item
-              xs={2}
-              className="Item-Child-Grid-Container"
+                </Item>
+              </Grid>
+            </Item>
+          </Grid>
+        ) : (
+          <Grid item xs={10} className="Child-Grid-Container">
+            <Item
+              className="Child-Grid-Item"
+              style={{ backgroundColor: "#343541" }}
             >
-              <Item1 className="Item-Child-Grid-Item" elevation={0}>
-                <div className="chatgpt-heading">
-                  <p className="heading">ChatGPT</p>
-                  <p className="light-text">3.5</p>
-                  <KeyboardArrowDownIcon className="light-text"/>
-                  
-                </div>
-              </Item1>
-              
-            </Grid>
-            <Grid
-              item
-              xs={12}
-              className="Item-Child-Grid-Container"
-            >
-              <Item className="Hero-Item-Child-Grid-Item-short" elevation={0} style={{backgroundColor:"transparent"}}>
+              <Grid item xs={2} className="Item-Child-Grid-Container">
+                <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                  <div className="chatgpt-heading">
+                    <p className="heading">ChatGPT</p>
+                    <p className="light-text">3.5</p>
+                    <KeyboardArrowDownIcon className="light-text" />
+                  </div>
+                </Item1>
+              </Grid>
+              <Grid item xs={12} className="Item-Child-Grid-Container">
+                <Item
+                  className="Hero-Item-Child-Grid-Item-short"
+                  elevation={0}
+                  style={{ backgroundColor: "transparent" }}
+                >
                   <div className="chat-group-container">
                     <div className="prompt">
-                      <AccountCircleIcon className="pr-icon" /><p className="prompt-text"><span className="sender-name">You</span>{chat.prompt }</p>
+                      <AccountCircleIcon className="pr-icon" />
+                      <p className="prompt-text">
+                        <span className="sender-name">You</span>
+                        {chat.prompt}
+                      </p>
                     </div>
                     <div className="response">
-                      <img src={GreenOpenAi } className="pr-icon"></img>
-                      <p className="response-text"><span className="sender-name">ChatGPT</span>{chat.response}</p>
+                      <img
+                        src={GreenOpenAi}
+                        className="pr-icon"
+                        alt="openai"
+                      ></img>
+                      <p className="response-text">
+                        <span className="sender-name">ChatGPT</span>
+                        {chat.response}
+                      </p>
                     </div>
-                  
-                </div>
-              </Item>
-              <Item className="Hero-Item-Child-Grid-Item-short" elevation={0} style={{backgroundColor:"transparent"}}>
-                <div className="chat-container">
-                  <div className="chat-row">
-                    <div className="custom-input-div-short">
-                      <input className="custom-chat-input" placeholder="Message ChatGPT..." ></input>
-                      <ArrowUpwardIcon className="submit-prompt-btn"/>
+                    <div className="prompt">
+                      <AccountCircleIcon className="pr-icon" />
+                      <p className="prompt-text">
+                        <span className="sender-name">You</span>
+                        {chat.prompt}
+                      </p>
+                    </div>
+                    <div className="response">
+                      <img
+                        src={GreenOpenAi}
+                        className="pr-icon"
+                        alt="openai"
+                      ></img>
+                      <p className="response-text">
+                        <span className="sender-name">ChatGPT</span>
+                        {chat.response}
+                      </p>
                     </div>
                   </div>
-                </div>
-              </Item>
-              
-            </Grid>
-          </Item>
-        </Grid>)}
+                </Item>
+                <Item
+                  className="Hero-Item-Child-Grid-Item-short"
+                  elevation={0}
+                  style={{ backgroundColor: "transparent" }}
+                >
+                  <div className="chat-container">
+                    <div className="chat-row">
+                      <div className="custom-input-div-short">
+                        <input
+                          className="custom-chat-input"
+                          placeholder="Message ChatGPT..."
+                        ></input>
+                        <ArrowUpwardIcon className="submit-prompt-btn" />
+                      </div>
+                    </div>
+                  </div>
+                </Item>
+              </Grid>
+            </Item>
+          </Grid>
+        )}
       </Grid>
     </Box>
   );
