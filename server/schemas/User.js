@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   oAuthId: {},
-  chatGroups: [{ type: Schema.Types.ObjectId, ref: "ChatGroup" }],
+  chatGroups: [{ type: mongoose.Schema.Types.ObjectId, ref: "ChatGroup" }],
   // Add other fields as needed for your user schema
 });
 

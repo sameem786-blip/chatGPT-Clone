@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const  cors = require("cors");
 
 const UserRoutes = require("./routes/user")
+const ChatRoutes = require("./routes/chat")
 
 const app = express();
 
@@ -30,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 console.log("Attempting to connect to DB...");
 connect();
 app.use("/auth/user", UserRoutes);
-// app.use("/api/chat", ChatRoutes);
+app.use("/api/chat", ChatRoutes);
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is listeing on port ${process.env.PORT}`)

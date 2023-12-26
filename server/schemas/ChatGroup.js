@@ -14,7 +14,6 @@ const chatgroupSchema = new mongoose.Schema({
     required: true,
     default: Date.now,
   },
-  chats: [{ type: Schema.Types.ObjectId, ref: "Chat" }],
 
   // Add other fields as needed for your user schema
 });

@@ -11,6 +11,7 @@ import StartIcon from "@mui/icons-material/Start";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import GreenOpenAi from "../../public/greenopenai.webp";
+import Axios from "axios";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
@@ -45,17 +46,35 @@ Choose a topic that aligns with your interests and expertise, or one that you th
 };
 
 const Dashboard = () => {
-  const [newChat, setNewChat] = useState(false);
+
+  const axiosInstance = Axios.create({
+    withCredentials: true,
+  });
+  const [newChat, setNewChat] = useState(true);
+  const [newPrompt, setNewPrompt] = useState("");
+
+  const handleNewPromptChange = (e) => {
+    e.preventDefault();
+    setNewPrompt(e.target.value);
+  }
+
+  const handlePromptSubmit = async (e) => {
+    e.preventDefault();
+    console.log(newPrompt)
+    if (newChat) {
+      try {
+        const newChatGroup = await axiosInstance.post("http://localhost:4000/auth/user/login", {
+          
+        })
+      } catch (err) {
+        
+      }
+    }
+
+  }
 
   const handleNewChatTrigger = () => {
     setNewChat(true);
-  };
-
-  const handleSubmitNewPrompt = () => {
-    if (!newChat) {
-    } else {
-      setNewChat(false);
-    }
   };
 
   return (
@@ -87,54 +106,7 @@ const Dashboard = () => {
                   <p className="left-item-text">chatGPT</p>
                   <MoreHorizIcon className="icon-hover" />
                 </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
+                
               </div>
               <Item1
                 className="Item-Child-Grid-Item"
@@ -231,8 +203,9 @@ const Dashboard = () => {
                         <input
                           className="custom-chat-input"
                           placeholder="Message ChatGPT..."
+                          onChange={handleNewPromptChange}
                         ></input>
-                        <ArrowUpwardIcon className="submit-prompt-btn" />
+                        <ArrowUpwardIcon className="submit-prompt-btn" onClick={handlePromptSubmit } />
                       </div>
                     </div>
                   </div>

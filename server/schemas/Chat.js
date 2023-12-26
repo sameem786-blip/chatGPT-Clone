@@ -23,7 +23,7 @@ const chatSchema = new mongoose.Schema({
         default: false
     },
     groupId: {
-        type: Integer,
+        type: Number,
         required: true
     },
 
@@ -32,4 +32,4 @@ const chatSchema = new mongoose.Schema({
 
 const Chat = mongoose.model('Chat', chatSchema);
 
-module.exports = User;
+module.exports = Chat;
