@@ -23,8 +23,9 @@ const chatSchema = new mongoose.Schema({
         default: false
     },
     groupId: {
-        type: Number,
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ChatGroup',
+      required: true
     },
 
   // Add other fields as needed for your user schema
