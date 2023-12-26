@@ -83,7 +83,58 @@ const Dashboard = () => {
                 </div>
               </Item1>
               <div className="chatGroups">
-                <div className="chat-group">gvg</div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
               </div>
               <Item1
                 className="Item-Child-Grid-Item"
