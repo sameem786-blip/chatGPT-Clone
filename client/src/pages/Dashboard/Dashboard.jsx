@@ -82,6 +82,9 @@ const Dashboard = () => {
                   <StartIcon className="icon-hover" />
                 </div>
               </Item1>
+              <div className="chatGroups">
+                <div className="chat-group">gvg</div>
+              </div>
               <Item1
                 className="Item-Child-Grid-Item"
                 elevation={0}

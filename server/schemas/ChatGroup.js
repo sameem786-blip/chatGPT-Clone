@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const chatgroupSchema = new mongoose.Schema({
   name: {
@@ -9,15 +9,16 @@ const chatgroupSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-    timeStamp: {
-        type: Date,
-        required: true,
-        default: Date.now
-    },
+  timeStamp: {
+    type: Date,
+    required: true,
+    default: Date.now,
+  },
+  chats: [{ type: Schema.Types.ObjectId, ref: "Chat" }],
 
   // Add other fields as needed for your user schema
 });
 
-const ChatGroup = mongoose.model('ChatGroup', chatgroupSchema);
+const ChatGroup = mongoose.model("ChatGroup", chatgroupSchema);
 
 module.exports = ChatGroup;

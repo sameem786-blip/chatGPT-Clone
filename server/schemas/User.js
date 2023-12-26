@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -13,12 +13,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  oAuthId: {
-
-  },
+  oAuthId: {},
+  chatGroups: [{ type: Schema.Types.ObjectId, ref: "ChatGroup" }],
   // Add other fields as needed for your user schema
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
