@@ -29,58 +29,44 @@ const Item1 = styled(Paper)(({ theme }) => ({
 
 const chat = {
   prompt: "Suggest me some topics for an article on javascript",
-  response: `Certainly! Here are some potential topics for an article on JavaScript:
-
-    Introduction to JavaScript: Cover the basics, history, and evolution of JavaScript.
-    ES6 Features: Discuss various ES6 features like arrow functions, template literals, destructuring, etc.
-    Asynchronous JavaScript: Explore asynchronous programming, callbacks, promises, async/await.
-    Functional Programming in JavaScript: Explain functional programming concepts using JavaScript.
-    JavaScript Frameworks: Dive into popular frameworks like React, Angular, or Vue.js, and their key features.
-    Data Structures and Algorithms in JavaScript: Implement common data structures and algorithms using JavaScript.
-    JavaScript Best Practices: Share best practices for writing clean, efficient, and maintainable code.
-    Testing in JavaScript: Cover different testing frameworks like Jest or Mocha for JavaScript applications.
-    JavaScript and APIs: Explain how to use JavaScript to interact with different APIs (e.g., RESTful APIs).
-    JavaScript Security: Discuss common security vulnerabilities and best practices in JavaScript.
-
-Choose a topic that aligns with your interests and expertise, or one that you think would be valuable to your audience!`,
+  response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
 };
 
 const Dashboard = () => {
-
   const axiosInstance = Axios.create({
     withCredentials: true,
   });
-  const [newChat, setNewChat] = useState(true);
+  const [newChat, setNewChat] = useState(false);
   const [newPrompt, setNewPrompt] = useState("");
 
   const handleNewPromptChange = (e) => {
     e.preventDefault();
     setNewPrompt(e.target.value);
-  }
+  };
 
   const handlePromptSubmit = async (e) => {
     e.preventDefault();
-    console.log(newPrompt)
+    console.log(newPrompt);
     if (newChat) {
-      try {
-        const newChatGroup = await axiosInstance.post("http://localhost:4000/auth/user/login", {
-          
-        })
-      } catch (err) {
-        
-      }
+      // try {
+      //   const newChatGroup = await axiosInstance.post(
+      //     "http://localhost:4000/auth/user/login",
+      //     {}
+      //   );
+      // } catch (err) {}
+      setNewChat(false);
     }
+  };
 
-  }
-
-  const handleNewChatTrigger = () => {
+  const handleNewChatTrigger = (e) => {
+    e.preventDefault();
     setNewChat(true);
   };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
-        <Grid item xs={2} className="Child-Grid-Container">
+        <Grid item sm={0} lg={2} className="Child-Grid-Container">
           <Item
             className="Child-Grid-Item"
             style={{ backgroundColor: "black", color: "white" }}
@@ -98,7 +84,10 @@ const Dashboard = () => {
                     </div>
                     <p className="left-item-text">New Chat</p>
                   </div>
-                  <StartIcon className="icon-hover" />
+                  <StartIcon
+                    className="icon-hover"
+                    onClick={handleNewChatTrigger}
+                  />
                 </div>
               </Item1>
               <div className="chatGroups">
@@ -106,7 +95,6 @@ const Dashboard = () => {
                   <p className="left-item-text">chatGPT</p>
                   <MoreHorizIcon className="icon-hover" />
                 </div>
-                
               </div>
               <Item1
                 className="Item-Child-Grid-Item"
@@ -127,7 +115,7 @@ const Dashboard = () => {
           </Item>
         </Grid>
         {newChat ? (
-          <Grid item xs={10} className="Child-Grid-Container">
+          <Grid item xs={12} lg={10} className="Child-Grid-Container">
             <Item
               className="Child-Grid-Item"
               style={{ backgroundColor: "#343541" }}
@@ -205,7 +193,10 @@ const Dashboard = () => {
                           placeholder="Message ChatGPT..."
                           onChange={handleNewPromptChange}
                         ></input>
-                        <ArrowUpwardIcon className="submit-prompt-btn" onClick={handlePromptSubmit } />
+                        <ArrowUpwardIcon
+                          className="submit-prompt-btn"
+                          onClick={handlePromptSubmit}
+                        />
                       </div>
                     </div>
                   </div>
