@@ -16,6 +16,8 @@ import Axios from "axios";
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
   transition: "background-color 0.3s",
+  backgroundColor: "transparent",
+  color: "white"
 }));
 
 const Item1 = styled(Paper)(({ theme }) => ({
@@ -70,7 +72,8 @@ const Dashboard = () => {
             className="Child-Grid-Item"
             style={{ backgroundColor: "black", color: "white" }}
           >
-            <Grid item xs={12} className="Item-Child-Grid-Container">
+            <Grid item xs={12} className="Item-Child-Grid-Container" >
+                <div className="left-bar-container">
               <Item1 className="Item-Child-Grid-Item" elevation={0}>
                 <div className="item-div">
                   <div className="left-alignment">
@@ -94,6 +97,86 @@ const Dashboard = () => {
                   <p className="left-item-text">chatGPT</p>
                   <MoreHorizIcon className="icon-hover" />
                 </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
+                <div className="chat-group">
+                  <p className="left-item-text">chatGPT</p>
+                  <MoreHorizIcon className="icon-hover" />
+                </div>
               </div>
               <Item1
                 className="Item-Child-Grid-Item"
@@ -109,7 +192,8 @@ const Dashboard = () => {
                   </div>
                   <MoreHorizIcon className="icon-hover" />
                 </div>
-              </Item1>
+                </Item1>
+                </div>
             </Grid>
           </Item>
         </Grid>
@@ -120,13 +204,13 @@ const Dashboard = () => {
               style={{ backgroundColor: "#343541" }}
             >
               <Grid item xs={2} className="Item-Child-Grid-Container">
-                <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                <Item className="Item-Child-Grid-Item" elevation={0}>
                   <div className="chatgpt-heading">
                     <p className="heading">ChatGPT</p>
                     <p className="light-text">3.5</p>
-                    <KeyboardArrowDownIcon className="light-text" />
+                    <KeyboardArrowDownIcon className="light-text" style={{ height: "3vh",width: "3vw"}}/>
                   </div>
-                </Item1>
+                </Item>
               </Grid>
               <Grid item xs={12} className="Item-Child-Grid-Container">
                 <Item
@@ -210,13 +294,13 @@ const Dashboard = () => {
               style={{ backgroundColor: "#343541" }}
             >
               <Grid item xs={2} className="Item-Child-Grid-Container">
-                <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                <Item className="Item-Child-Grid-Item" elevation={0}>
                   <div className="chatgpt-heading">
                     <p className="heading">ChatGPT</p>
                     <p className="light-text">3.5</p>
-                    <KeyboardArrowDownIcon className="light-text" />
+                    <KeyboardArrowDownIcon className="light-text" style={{ height: "3vh",width: "3vw"}}/>
                   </div>
-                </Item1>
+                </Item>
               </Grid>
               <Grid item xs={12} className="Item-Child-Grid-Container">
                 <Item
