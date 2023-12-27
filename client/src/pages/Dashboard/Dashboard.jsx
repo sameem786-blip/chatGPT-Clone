@@ -48,12 +48,6 @@ const Dashboard = () => {
     e.preventDefault();
     console.log(newPrompt);
     if (newChat) {
-      // try {
-      //   const newChatGroup = await axiosInstance.post(
-      //     "http://localhost:4000/auth/user/login",
-      //     {}
-      //   );
-      // } catch (err) {}
       setNewChat(false);
     }
   };
@@ -66,7 +60,12 @@ const Dashboard = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
-        <Grid item sm={0} lg={2} className="Child-Grid-Container">
+        <Grid
+          item
+          xs={2}
+          sx={{ display: { xs: "none", lg: "block" } }}
+          className="Child-Grid-Container"
+        >
           <Item
             className="Child-Grid-Item"
             style={{ backgroundColor: "black", color: "white" }}
@@ -205,7 +204,7 @@ const Dashboard = () => {
             </Item>
           </Grid>
         ) : (
-          <Grid item xs={10} className="Child-Grid-Container">
+          <Grid item xs={12} lg={10} className="Child-Grid-Container">
             <Item
               className="Child-Grid-Item"
               style={{ backgroundColor: "#343541" }}
@@ -276,7 +275,10 @@ const Dashboard = () => {
                           className="custom-chat-input"
                           placeholder="Message ChatGPT..."
                         ></input>
-                        <ArrowUpwardIcon className="submit-prompt-btn" />
+                        <ArrowUpwardIcon
+                          className="submit-prompt-btn"
+                          onClick={handlePromptSubmit}
+                        />
                       </div>
                     </div>
                   </div>
