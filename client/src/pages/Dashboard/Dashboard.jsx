@@ -12,12 +12,15 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import GreenOpenAi from "../../public/greenopenai.webp";
 import Axios from "axios";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
   transition: "background-color 0.3s",
   backgroundColor: "transparent",
-  color: "white"
+  color: "white",
 }));
 
 const Item1 = styled(Paper)(({ theme }) => ({
@@ -59,6 +62,15 @@ const Dashboard = () => {
     setNewChat(true);
   };
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
@@ -72,128 +84,84 @@ const Dashboard = () => {
             className="Child-Grid-Item"
             style={{ backgroundColor: "black", color: "white" }}
           >
-            <Grid item xs={12} className="Item-Child-Grid-Container" >
-                <div className="left-bar-container">
-              <Item1 className="Item-Child-Grid-Item" elevation={0}>
-                <div className="item-div">
-                  <div className="left-alignment">
-                    <div className="openai-logo-circle">
-                      <img
-                        className="left-openai-spiral"
-                        src={openaispiral}
-                        alt="openai"
-                      ></img>
+            <Grid item xs={12} className="Item-Child-Grid-Container">
+              <div className="left-bar-container">
+                <Item1 className="Item-Child-Grid-Item" elevation={0}>
+                  <div className="item-div">
+                    <div className="left-alignment">
+                      <div className="openai-logo-circle">
+                        <img
+                          className="left-openai-spiral"
+                          src={openaispiral}
+                          alt="openai"
+                        ></img>
+                      </div>
+                      <p className="left-item-text">New Chat</p>
                     </div>
-                    <p className="left-item-text">New Chat</p>
+                    <StartIcon
+                      className="icon-hover"
+                      onClick={handleNewChatTrigger}
+                    />
                   </div>
-                  <StartIcon
-                    className="icon-hover"
-                    onClick={handleNewChatTrigger}
-                  />
-                </div>
-              </Item1>
-              <div className="chatGroups">
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-                <div className="chat-group">
-                  <p className="left-item-text">chatGPT</p>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
-              </div>
-              <Item1
-                className="Item-Child-Grid-Item"
-                elevation={0}
-                style={{
-                  marginTop: "20px",
-                }}
-              >
-                <div className="item-div-bottom">
-                  <div className="left-alignment">
-                    <AccountCircleIcon className="account-circle" />
-                    <p className="left-item-text">Sameem Abbas</p>
-                  </div>
-                  <MoreHorizIcon className="icon-hover" />
-                </div>
                 </Item1>
+                <div className="chatGroups">
+                  <div className="chat-group">
+                    <p className="left-item-text">chatGPT</p>
+                    <MoreHorizIcon className="icon-hover" />
+                  </div>
                 </div>
+                <Item1
+                  className="Item-Child-Grid-Item"
+                  elevation={0}
+                  style={{
+                    marginTop: "20px",
+                    width: "85%",
+                  }}
+                >
+                  <div className="item-div-bottom">
+                    <div className="left-alignment">
+                      <AccountCircleIcon className="account-circle" />
+                      <p className="left-item-text">Sameem Abbas</p>
+                    </div>
+
+                    <MoreHorizIcon
+                      id="demo-positioned-button-profile"
+                      aria-controls={
+                        open ? "demo-positioned-menu-profile" : undefined
+                      }
+                      aria-haspopup="true"
+                      aria-expanded={open ? "true" : undefined}
+                      onClick={handleClick}
+                      className="icon-hover"
+                    />
+                    <Menu
+                      id="demo-positioned-menu-profile"
+                      aria-labelledby="demo-positioned-button-profile"
+                      anchorEl={anchorEl}
+                      open={open}
+                      onClose={handleClose}
+                      className="left-action-menu"
+                      anchorOrigin={{
+                        vertical: "top",
+                        horizontal: "right",
+                      }}
+                      transformOrigin={{
+                        vertical: "top",
+                        horizontal: "left",
+                      }}
+                      style={{ background: "transparent" }}
+                    >
+                      <MenuItem
+                        onClick={handleClose}
+                        className="left-menu-item"
+                        style={{ color: "white", background: "#202123" }}
+                      >
+                        Logout
+                      </MenuItem>
+                    </Menu>
+                  </div>
+                </Item1>
+              </div>
             </Grid>
           </Item>
         </Grid>
@@ -208,7 +176,10 @@ const Dashboard = () => {
                   <div className="chatgpt-heading">
                     <p className="heading">ChatGPT</p>
                     <p className="light-text">3.5</p>
-                    <KeyboardArrowDownIcon className="light-text" style={{ height: "3vh",width: "3vw"}}/>
+                    <KeyboardArrowDownIcon
+                      className="light-text"
+                      style={{ height: "3vh", width: "3vw" }}
+                    />
                   </div>
                 </Item>
               </Grid>
@@ -298,7 +269,10 @@ const Dashboard = () => {
                   <div className="chatgpt-heading">
                     <p className="heading">ChatGPT</p>
                     <p className="light-text">3.5</p>
-                    <KeyboardArrowDownIcon className="light-text" style={{ height: "3vh",width: "3vw"}}/>
+                    <KeyboardArrowDownIcon
+                      className="light-text"
+                      style={{ height: "3vh", width: "3vw" }}
+                    />
                   </div>
                 </Item>
               </Grid>

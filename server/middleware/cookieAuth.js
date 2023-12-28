@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
     cookieToken = req.cookies.cookieAuth; // Initialize cookieToken without "let"
     if (!cookieToken) return res.status(401).json("Not Logged In.");
 
-    decodedCookieToken = jwt.verify(cookieToken, "akmakndalknadfa");
+    decodedCookieToken = jwt.verify(cookieToken, "secret-key");
 
     req.userData = {
       name: decodedCookieToken.email,
