@@ -32,10 +32,24 @@ const Item1 = styled(Paper)(({ theme }) => ({
   },
 }));
 
-const chat = {
-  prompt: "Suggest me some topics for an article on javascript",
-  response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
-};
+const chatGroupChats = [
+  {
+    prompt: "Suggest me some topics for an article on javascript",
+    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
+  },
+  {
+    prompt: "Suggest me some topics for an article on javascript",
+    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
+  },
+  {
+    prompt: "Suggest me some topics for an article on javascript",
+    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
+  },
+  {
+    prompt: "Suggest me some topics for an article on javascript",
+    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
+  },
+];
 
 const Dashboard = () => {
   const axiosInstance = Axios.create({
@@ -283,42 +297,28 @@ const Dashboard = () => {
                   style={{ backgroundColor: "transparent" }}
                 >
                   <div className="chat-group-container">
-                    <div className="prompt">
-                      <AccountCircleIcon className="pr-icon" />
-                      <p className="prompt-text">
-                        <span className="sender-name">You</span>
-                        {chat.prompt}
-                      </p>
-                    </div>
-                    <div className="response">
-                      <img
-                        src={GreenOpenAi}
-                        className="pr-icon"
-                        alt="openai"
-                      ></img>
-                      <p className="response-text">
-                        <span className="sender-name">ChatGPT</span>
-                        {chat.response}
-                      </p>
-                    </div>
-                    <div className="prompt">
-                      <AccountCircleIcon className="pr-icon" />
-                      <p className="prompt-text">
-                        <span className="sender-name">You</span>
-                        {chat.prompt}
-                      </p>
-                    </div>
-                    <div className="response">
-                      <img
-                        src={GreenOpenAi}
-                        className="pr-icon"
-                        alt="openai"
-                      ></img>
-                      <p className="response-text">
-                        <span className="sender-name">ChatGPT</span>
-                        {chat.response}
-                      </p>
-                    </div>
+                    {chatGroupChats.map((chat, key) => (
+                      <React.Fragment key={key}>
+                        <div className="prompt">
+                          <AccountCircleIcon className="pr-icon" />
+                          <p className="prompt-text">
+                            <span className="sender-name">You</span>
+                            {chat.prompt}
+                          </p>
+                        </div>
+                        <div className="response">
+                          <img
+                            src={GreenOpenAi}
+                            className="pr-icon"
+                            alt="openai"
+                          />
+                          <p className="response-text">
+                            <span className="sender-name">ChatGPT</span>
+                            {chat.response}
+                          </p>
+                        </div>
+                      </React.Fragment>
+                    ))}
                   </div>
                 </Item>
                 <Item
