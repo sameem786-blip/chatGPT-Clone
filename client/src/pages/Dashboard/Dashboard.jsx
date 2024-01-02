@@ -197,7 +197,7 @@ const Dashboard = () => {
               className="Child-Grid-Item"
               style={{ backgroundColor: "#343541" }}
             >
-              <Grid item xs={2} className="Item-Child-Grid-Container">
+              <Grid item xs={6} className="Item-Child-Grid-Container">
                 <Item className="Item-Child-Grid-Item" elevation={0}>
                   <div className="chatgpt-heading">
                     <p className="heading">ChatGPT</p>
