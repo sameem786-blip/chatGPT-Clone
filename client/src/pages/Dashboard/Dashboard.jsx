@@ -57,18 +57,22 @@ const Dashboard = () => {
   });
   const [newChat, setNewChat] = useState(false);
   const [newPrompt, setNewPrompt] = useState("");
+  const [prompt, setPrompt] = useState("");
+  const [selectedGroup, setSelectedGroup] = useState();
 
   const handleNewPromptChange = (e) => {
     e.preventDefault();
     setNewPrompt(e.target.value);
   };
-
-  const handlePromptSubmit = async (e) => {
+  const handlePromptChange = (e) => {
     e.preventDefault();
-    console.log(newPrompt);
-    if (newChat) {
-      setNewChat(false);
-    }
+    setPrompt(e.target.value);
+  };
+
+  const handlePromptSubmit = async (e) => {};
+
+  const handleChatGroupSelect = async (groupName) => {
+    setSelectedGroup(groupName);
   };
 
   const handleNewChatTrigger = (e) => {
@@ -119,7 +123,15 @@ const Dashboard = () => {
                   </div>
                 </Item1>
                 <div className="chatGroups">
-                  <div className="chat-group">
+                  <div
+                    className={`chat-group ${
+                      selectedGroup === "chatGPT" ? "selected" : ""
+                    }`}
+                    value="chatGPT"
+                    onClick={() => {
+                      handleChatGroupSelect("chatGPT");
+                    }}
+                  >
                     <p className="left-item-text">chatGPT</p>
                     <MoreHorizIcon className="icon-hover" />
                   </div>
@@ -335,6 +347,8 @@ const Dashboard = () => {
                         ></input>
                         <ArrowUpwardIcon
                           className="submit-prompt-btn"
+                          onChange={handlePromptChange}
+                          value={prompt}
                           onClick={handlePromptSubmit}
                         />
                       </div>

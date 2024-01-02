@@ -85,7 +85,7 @@
   justify-content: center;
   gap: 5px;
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   margin-top: 10px;
   margin-left: 10%;
   cursor: pointer;
@@ -99,12 +99,12 @@
 }
 
 .heading {
-  font-size: 1.6vw;
+  font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
 }
 .light-text {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.6vw;
+  font-size: 16px;
   color: #c5c5d2;
 }
 
@@ -398,6 +398,10 @@
   background: #2a2b35;
 }
 
+.selected {
+  background: #2a2b35;
+}
+
 .left-bar-container {
   display: flex;
   flex-direction: column;
@@ -412,4 +416,29 @@
 
 .left-menu-item {
   color: white;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .light-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #c5c5d2;
+  }
+}
+
+/* Media query for even smaller screens */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .light-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #c5c5d2;
+  }
 }
