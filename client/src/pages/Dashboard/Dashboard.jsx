@@ -71,6 +71,13 @@ const Dashboard = () => {
 
   const handlePromptSubmit = async (e) => {};
 
+  const handleNewPromptSubmit = async (prompt) => {
+    try {
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const handleChatGroupSelect = async (groupName) => {
     setSelectedGroup(groupName);
   };
@@ -271,11 +278,12 @@ const Dashboard = () => {
                         <input
                           className="custom-chat-input"
                           placeholder="Message ChatGPT..."
+                          value={newPrompt}
                           onChange={handleNewPromptChange}
                         ></input>
                         <ArrowUpwardIcon
                           className="submit-prompt-btn"
-                          onClick={handlePromptSubmit}
+                          onClick={handleNewPromptSubmit}
                         />
                       </div>
                     </div>
