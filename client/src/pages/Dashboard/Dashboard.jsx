@@ -71,8 +71,33 @@ const Dashboard = () => {
 
   const handlePromptSubmit = async (e) => {};
 
-  const handleNewPromptSubmit = async (prompt) => {
+  const handleNewPromptSubmit = async () => {
     try {
+      const response = await axiosInstance.post(
+        "http://localhost:4000/api/chat/newChatGroup",
+        {
+          prompt: newPrompt,
+          userId: "65761077465d9f28a240c919",
+        }
+      );
+
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleCustomChatSubmit = async (prompt) => {
+    try {
+      const response = await axiosInstance.post(
+        "http://localhost:4000/api/chat/newChatGroup",
+        {
+          prompt: prompt,
+          userId: "65761077465d9f28a240c919",
+        }
+      );
+
+      console.log(response);
     } catch (err) {
       console.log(err);
     }
@@ -240,7 +265,14 @@ const Dashboard = () => {
                 >
                   <div className="chat-container">
                     <div className="chat-row">
-                      <div className="custom-chat">
+                      <div
+                        className="custom-chat"
+                        onClick={() => {
+                          handleCustomChatSubmit(
+                            "Plan a trip to explore the Madagascar wildlife on a budget"
+                          );
+                        }}
+                      >
                         <p className="custom-chat-heading multi-line-ellipsis">
                           Plan a trip
                         </p>
@@ -248,7 +280,14 @@ const Dashboard = () => {
                           to explore the Madagascar wildlife on a budget
                         </p>
                       </div>
-                      <div className="custom-chat">
+                      <div
+                        className="custom-chat"
+                        onClick={() => {
+                          handleCustomChatSubmit(
+                            "Design a database schema for an online merch store"
+                          );
+                        }}
+                      >
                         <p className="custom-chat-heading">
                           Design a database schema
                         </p>
@@ -258,7 +297,14 @@ const Dashboard = () => {
                       </div>
                     </div>
                     <div className="chat-row">
-                      <div className="custom-chat">
+                      <div
+                        className="custom-chat"
+                        onClick={() => {
+                          handleCustomChatSubmit(
+                            "Create a personal webpage for me after asking me three questions"
+                          );
+                        }}
+                      >
                         <p className="custom-chat-heading">
                           Create a personal webpage for me
                         </p>
@@ -266,7 +312,14 @@ const Dashboard = () => {
                           after asking me three questions
                         </p>
                       </div>
-                      <div className="custom-chat">
+                      <div
+                        className="custom-chat"
+                        onClick={() => {
+                          handleCustomChatSubmit(
+                            "Give me ideas about how to plan my New Years resolutions"
+                          );
+                        }}
+                      >
                         <p className="custom-chat-heading">Give me ideas</p>
                         <p className="custom-chat-prompt">
                           about how to plan my New Years resolutions
