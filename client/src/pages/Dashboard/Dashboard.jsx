@@ -51,11 +51,11 @@ const chatGroupChats = [
   },
 ];
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const axiosInstance = Axios.create({
     withCredentials: true,
   });
-  const [newChat, setNewChat] = useState(false);
+  const [newChat, setNewChat] = useState(true);
   const [newPrompt, setNewPrompt] = useState("");
   const [prompt, setPrompt] = useState("");
   const [selectedGroup, setSelectedGroup] = useState();
@@ -179,7 +179,7 @@ const Dashboard = () => {
                   <div className="item-div-bottom">
                     <div className="left-alignment">
                       <AccountCircleIcon className="account-circle" />
-                      <p className="left-item-text">Sameem Abbas</p>
+                      <p className="left-item-text">{props.user.name}</p>
                     </div>
 
                     <MoreHorizIcon

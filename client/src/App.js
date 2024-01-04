@@ -15,7 +15,9 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={currentUser ? <Dashboard /> : <LoginPage />}
+            element={
+              currentUser ? <Dashboard user={currentUser} /> : <LoginPage />
+            }
           />
           {/* Add more routes as needed */}
         </Routes>
