@@ -1,25 +1,22 @@
 import "./App.css";
+import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 
 function App() {
-  const cookieCheck = () => {
-    const cookie = document.cookie
-      .split(";")
-      .find((cookie) => cookie.trim().startsWith("cookieAuth="));
-    return cookie ? true : false;
-  };
+  const [currentUser, setCurrentUser] = useState(
+    JSON.parse(localStorage.getItem("gptcloneuser")) || null
+  );
 
-  const isLoggedIn = cookieCheck();
   return (
     <div className="App">
-      {console.log(isLoggedIn)}
+      {console.log(currentUser)}
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
-            element={isLoggedIn ? <Dashboard /> : <LoginPage />}
+            element={currentUser ? <Dashboard /> : <LoginPage />}
           />
           {/* Add more routes as needed */}
         </Routes>

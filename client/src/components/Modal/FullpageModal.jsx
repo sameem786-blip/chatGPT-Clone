@@ -65,7 +65,7 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
       // Handle the response accordingly
       console.log("Login successful", response.data);
 
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      localStorage.setItem("gptcloneuser", JSON.stringify(response.data.user));
 
       // Reset the email and password fields after successful login
       setEmail("");
