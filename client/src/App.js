@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/signin" element={<LoginPage />} />
+          <Route path="/auth" element={<LoginPage />} />
           <Route
-            path="/dashboard"
+            path="/"
             element={isLoggedIn ? <Dashboard /> : <LoginPage />}
           />
           {/* Add more routes as needed */}
