@@ -11,7 +11,6 @@ function App() {
 
   return (
     <div className="App">
-      {console.log(currentUser)}
       <BrowserRouter>
         <Routes>
           <Route
