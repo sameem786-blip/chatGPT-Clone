@@ -59,6 +59,7 @@ const Dashboard = (props) => {
   const [newPrompt, setNewPrompt] = useState("");
   const [prompt, setPrompt] = useState("");
   const [selectedGroup, setSelectedGroup] = useState();
+  const [chatGroups, setChatGroups] = useState([]);
 
   const handleNewPromptChange = (e) => {
     e.preventDefault();
@@ -121,6 +122,22 @@ const Dashboard = (props) => {
     setAnchorEl(null);
   };
 
+  useEffect(() => {
+    async function fetchChatGroups() {
+      try {
+        const response = await axiosInstance.get(
+          `http://localhost:4000/api/chat/getChatGroups?userId=${props.user._id}`
+        );
+
+        setChatGroups(response.data.chatGroups);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    fetchChatGroups();
+  }, [props.user._id]);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container className="Dashboard-Grid-Container">
@@ -155,18 +172,20 @@ const Dashboard = (props) => {
                   </div>
                 </Item1>
                 <div className="chatGroups">
-                  <div
-                    className={`chat-group ${
-                      selectedGroup === "chatGPT" ? "selected" : ""
-                    }`}
-                    value="chatGPT"
-                    onClick={() => {
-                      handleChatGroupSelect("chatGPT");
-                    }}
-                  >
-                    <p className="left-item-text">chatGPT</p>
-                    <MoreHorizIcon className="icon-hover" />
-                  </div>
+                  {chatGroups.map((chatGroup, key) => (
+                    <div
+                      className={`chat-group ${
+                        selectedGroup === chatGroup.name ? "selected" : ""
+                      }`}
+                      key={key}
+                      onClick={() => {
+                        handleChatGroupSelect(chatGroup.name);
+                      }}
+                    >
+                      <p className="left-item-text">{chatGroup.name}</p>
+                      <MoreHorizIcon className="icon-hover" />
+                    </div>
+                  ))}
                 </div>
                 <Item1
                   className="Item-Child-Grid-Item"
