@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./fullPageModal.css";
 import openaispiral from "../../public/openaispiral.png";
+import { Link, useNavigate } from "react-router-dom";
 
 import CloseIcon from "@mui/icons-material/Close";
 import MicrosoftIcon from "../../public/microsoft.png";
@@ -22,6 +23,7 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
   const [passValueExists, setPassValueExists] = useState(false);
 
   const [modalContent, setModalContent] = useState(content);
+  const navigate = useNavigate();
   const modalClass = isOpen ? "modal-container open" : "modal-container";
 
   const changeModal = () => {
@@ -69,6 +71,8 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
       setEmail("");
       setPassword("");
       setInvalidCredentials(false);
+
+      navigate("/");
     } catch (error) {
       setInvalidCredentials(true);
       // Handle errors here

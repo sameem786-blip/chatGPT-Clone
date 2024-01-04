@@ -74,7 +74,8 @@ exports.login = async (req, res) => {
     res
       .cookie("cookieAuth", token, {
         httpOnly: true,
-        sameSite: "None",
+        sameSite: "",
+        secure: true,
       })
       .status(200)
       .json({
