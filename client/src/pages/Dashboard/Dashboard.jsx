@@ -104,8 +104,8 @@ const Dashboard = (props) => {
     }
   };
 
-  const handleChatGroupSelect = async (groupName) => {
-    setSelectedGroup(groupName);
+  const handleChatGroupSelect = async (groupid) => {
+    setSelectedGroup(groupid);
   };
 
   const handleNewChatTrigger = (e) => {
@@ -181,14 +181,14 @@ const Dashboard = (props) => {
                   </div>
                 </Item1>
                 <div className="chatGroups">
-                  {chatGroups.map((chatGroup, key) => (
+                  {chatGroups.map((chatGroup) => (
                     <div
                       className={`chat-group ${
-                        selectedGroup === chatGroup.name ? "selected" : ""
+                        selectedGroup === chatGroup._id ? "selected" : ""
                       }`}
-                      key={key}
+                      key={chatGroup._id}
                       onClick={() => {
-                        handleChatGroupSelect(chatGroup.name);
+                        handleChatGroupSelect(chatGroup._id);
                       }}
                     >
                       <p className="left-item-text">{chatGroup.name}</p>
