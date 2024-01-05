@@ -71,7 +71,22 @@ const Dashboard = (props) => {
     setPrompt(e.target.value);
   };
 
-  const handlePromptSubmit = async (e) => {};
+  const handlePromptSubmit = async () => {
+    try {
+      const response = await axiosInstance.post(
+        "http://localhost:4000/api/chat/addChat",
+        {
+          prompt: prompt,
+          groupId: selectedGroup,
+        }
+      );
+
+      setCurrentChats((prevChats) => [...prevChats, response.data.newChat]);
+      setPrompt("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleNewPromptSubmit = async () => {
     try {
@@ -122,6 +137,7 @@ const Dashboard = (props) => {
   const handleNewChatTrigger = (e) => {
     e.preventDefault();
     setNewChat(true);
+    setSelectedGroup("");
   };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -444,12 +460,14 @@ const Dashboard = (props) => {
                         <input
                           className="custom-chat-input"
                           placeholder="Message ChatGPT..."
+                          onChange={handlePromptChange}
+                          value={prompt}
                         ></input>
                         <ArrowUpwardIcon
                           className="submit-prompt-btn"
-                          onChange={handlePromptChange}
-                          value={prompt}
-                          onClick={handlePromptSubmit}
+                          onClick={() => {
+                            handlePromptSubmit();
+                          }}
                         />
                       </div>
                     </div>
