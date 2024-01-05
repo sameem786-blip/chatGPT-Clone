@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./dashboard.css";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -32,29 +32,11 @@ const Item1 = styled(Paper)(({ theme }) => ({
   },
 }));
 
-const chatGroupChats = [
-  {
-    prompt: "Suggest me some topics for an article on javascript",
-    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
-  },
-  {
-    prompt: "Suggest me some topics for an article on javascript",
-    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
-  },
-  {
-    prompt: "Suggest me some topics for an article on javascript",
-    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
-  },
-  {
-    prompt: "Suggest me some topics for an article on javascript",
-    response: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra et ultrices neque ornare aenean euismod elementum. Erat imperdiet sed euismod nisi porta lorem mollis aliquam. Euismod in pellentesque massa placerat duis ultricies lacus sed. Elit ut aliquam purus sit amet luctus venenatis lectus magna. Posuere ac ut consequat semper viverra nam. Dolor sed viverra ipsum nunc aliquet bibendum enim facilisis. A erat nam at lectus urna duis convallis. Donec pretium vulputate sapien nec sagittis. Eget duis at tellus at urna condimentum. Ullamcorper malesuada proin libero nunc consequat interdum. Tempus iaculis urna id volutpat lacus laoreet non curabitur. Sed odio morbi quis commodo odio aenean sed. Facilisi morbi tempus iaculis urna id. Et ligula ullamcorper malesuada proin libero.`,
-  },
-];
-
 const Dashboard = (props) => {
   const axiosInstance = Axios.create({
     withCredentials: true,
   });
+  const scrollableContainerRef = useRef(null);
   const [newChat, setNewChat] = useState(true);
   const [newPrompt, setNewPrompt] = useState("");
   const [prompt, setPrompt] = useState("");
@@ -173,6 +155,20 @@ const Dashboard = (props) => {
 
     fetchChatGroups();
   }, [props.user._id]);
+
+  useEffect(() => {
+    // Function to scroll to bottom
+    const scrollToBottom = () => {
+      if (scrollableContainerRef.current) {
+        const scrollableDiv = scrollableContainerRef.current;
+        scrollableDiv.scrollTop =
+          scrollableDiv.scrollHeight - scrollableDiv.clientHeight;
+      }
+    };
+
+    // Scroll to bottom whenever currentChats changes
+    scrollToBottom();
+  }, [currentChats]);
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -424,7 +420,10 @@ const Dashboard = (props) => {
                   elevation={0}
                   style={{ backgroundColor: "transparent" }}
                 >
-                  <div className="chat-group-container">
+                  <div
+                    ref={scrollableContainerRef}
+                    className="chat-group-container"
+                  >
                     {currentChats.map((chat, key) => (
                       <React.Fragment key={key}>
                         <div className="prompt">

@@ -287,6 +287,7 @@
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  scroll-behavior: smooth;
 }
 
 .chat-group-container::-webkit-scrollbar {
