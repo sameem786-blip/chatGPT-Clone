@@ -60,6 +60,7 @@ const Dashboard = (props) => {
   const [prompt, setPrompt] = useState("");
   const [selectedGroup, setSelectedGroup] = useState();
   const [chatGroups, setChatGroups] = useState([]);
+  const [currentChats, setCurrentChats] = useState([]);
 
   const handleNewPromptChange = (e) => {
     e.preventDefault();
@@ -105,7 +106,17 @@ const Dashboard = (props) => {
   };
 
   const handleChatGroupSelect = async (groupid) => {
-    setSelectedGroup(groupid);
+    try {
+      const response = await axiosInstance.get(
+        `http://localhost:4000/api/chat/getGroupChats?groupId=${groupid}`
+      );
+
+      setCurrentChats(response.data.chats);
+      setSelectedGroup(groupid);
+      setNewChat(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleNewChatTrigger = (e) => {
@@ -124,7 +135,7 @@ const Dashboard = (props) => {
 
   const handleLogout = async () => {
     try {
-      axiosInstance.post("http://localhost:4000/auth/user/logout");
+      await axiosInstance.post("http://localhost:4000/auth/user/logout");
       props.onLogout();
     } catch (err) {
       console.log(err);
@@ -398,7 +409,7 @@ const Dashboard = (props) => {
                   style={{ backgroundColor: "transparent" }}
                 >
                   <div className="chat-group-container">
-                    {chatGroupChats.map((chat, key) => (
+                    {currentChats.map((chat, key) => (
                       <React.Fragment key={key}>
                         <div className="prompt">
                           <AccountCircleIcon className="pr-icon" />

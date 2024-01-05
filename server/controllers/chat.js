@@ -61,3 +61,16 @@ exports.getChatGroups = async (req, res) => {
     res.status(500).json("Error fetching Chat Groups");
   }
 };
+
+exports.getGroupChats = async (req, res) => {
+  try {
+    const groupId = req.query.groupId;
+
+    const chats = await Chat.find({ groupId: groupId });
+
+    res.status(200).json({ chats });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Error fetching Groups Chat");
+  }
+};
