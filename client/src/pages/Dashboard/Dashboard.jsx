@@ -122,6 +122,15 @@ const Dashboard = (props) => {
     setAnchorEl(null);
   };
 
+  const handleLogout = async () => {
+    try {
+      axiosInstance.post("http://localhost:4000/auth/user/logout");
+      props.onLogout();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     async function fetchChatGroups() {
       try {
@@ -229,7 +238,7 @@ const Dashboard = (props) => {
                       style={{ background: "transparent" }}
                     >
                       <MenuItem
-                        onClick={handleClose}
+                        onClick={handleLogout}
                         className="left-menu-item"
                         style={{ color: "white", background: "#202123" }}
                       >

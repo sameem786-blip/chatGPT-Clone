@@ -96,6 +96,22 @@ exports.forgetPassword = async (req, res) => {
   }
 };
 
+exports.logout = async (req, res) => {
+  try {
+    res
+      .clearCookie("cookieAuth", {
+        httpOnly: true,
+        sameSite: "",
+        secure: true,
+      })
+      .status(200)
+      .json({ message: "user logged out" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json("Internal Server Error");
+  }
+};
+
 //microsoft Oauth
 exports.msAuth = async (req, res) => {
   try {
