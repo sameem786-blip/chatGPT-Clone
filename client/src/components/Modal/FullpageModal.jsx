@@ -9,7 +9,7 @@ import GoogleIcon from "../../public/search.png";
 import AppleIcon from "../../public/apple.png";
 import Axios from "axios";
 
-const FullpageModal = ({ isOpen, content, onClose }) => {
+const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   const axiosInstance = Axios.create({
     withCredentials: true,
   });
@@ -23,7 +23,6 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
   const [passValueExists, setPassValueExists] = useState(false);
 
   const [modalContent, setModalContent] = useState(content);
-  const navigate = useNavigate();
   const modalClass = isOpen ? "modal-container open" : "modal-container";
 
   const changeModal = () => {
@@ -65,14 +64,12 @@ const FullpageModal = ({ isOpen, content, onClose }) => {
       // Handle the response accordingly
       console.log("Login successful", response.data);
 
-      localStorage.setItem("gptcloneuser", JSON.stringify(response.data.user));
-
       // Reset the email and password fields after successful login
       setEmail("");
       setPassword("");
       setInvalidCredentials(false);
 
-      navigate("/");
+      onLogin(response.data.user);
     } catch (error) {
       setInvalidCredentials(true);
       // Handle errors here

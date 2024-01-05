@@ -5,7 +5,7 @@ import openai from "../../public/openai.png";
 import typewriterText from "../../JSON/typeWriterText.json";
 import Modal from "../../components/Modal/FullpageModal";
 
-const LoginPage = () => {
+const LoginPage = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
   const [index, setIndex] = useState(0);
@@ -120,6 +120,7 @@ const LoginPage = () => {
                 isOpen={isModalOpen}
                 onClose={closeModal}
                 content={modalContent}
+                onLogin={props.onLogin}
               />
             </div>
           </div>
