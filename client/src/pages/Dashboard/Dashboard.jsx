@@ -80,7 +80,11 @@ const Dashboard = (props) => {
         }
       );
 
-      console.log(response);
+      setNewPrompt("")
+      setChatGroups((prevGroups) => [...prevGroups, response.data.newChatGroup]);
+      setCurrentChats(response.data.newChat);
+      setSelectedGroup(response.data.newChatGroup._id);
+      setNewChat(false)
     } catch (err) {
       console.log(err);
     }
@@ -97,6 +101,7 @@ const Dashboard = (props) => {
       );
 
       console.log(response);
+      
     } catch (err) {
       console.log(err);
     }

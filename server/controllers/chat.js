@@ -37,7 +37,7 @@ exports.createNewChatGroup = async (req, res) => {
 
     const serverResponse = {
       newChatGroup,
-      newChat,
+      newChat: [newChat],
     };
 
     res.status(200).json(serverResponse);
