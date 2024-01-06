@@ -373,7 +373,6 @@
   padding-right: 8px;
   margin-top: 15px;
   height: 70%;
-  border: 2px solid red;
   overflow: auto;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
