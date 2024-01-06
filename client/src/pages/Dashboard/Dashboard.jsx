@@ -99,8 +99,10 @@ const Dashboard = (props) => {
           userId: "65761077465d9f28a240c919",
         }
       );
-
-      console.log(response);
+      setChatGroups((prevGroups) => [...prevGroups, response.data.newChatGroup]);
+      setCurrentChats(response.data.newChat);
+      setSelectedGroup(response.data.newChatGroup._id);
+      setNewChat(false)
       
     } catch (err) {
       console.log(err);
