@@ -51,7 +51,7 @@ exports.getChatGroups = async (req, res) => {
   try {
     const chatGroups = await ChatGroup.find({
       userId: req.query.userId,
-    });
+    }).sort({ _id: -1 });
 
     res.status(200).json({
       chatGroups,
