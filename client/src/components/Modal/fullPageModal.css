@@ -57,6 +57,9 @@
   .openai-logo {
     height: 7%;
     width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .openaiLogo {

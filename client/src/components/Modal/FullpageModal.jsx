@@ -108,7 +108,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
       const { code } = response; // Get the authorization code
 
       // Send the authorization code to your backend
-      await fetch("http:localhost:4000/auth/user/googleAuth", {
+      await fetch("http://localhost:4000/auth/user/googleAuth", {
         method: "POST",
         headers: {
           Authorization: code, // Send the code in the Authorization header
