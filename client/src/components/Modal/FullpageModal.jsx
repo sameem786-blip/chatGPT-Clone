@@ -105,18 +105,25 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
 
   const responseGoogle = async (response) => {
     try {
+      console.log("Hua Hua");
       const { code } = response; // Get the authorization code
 
       // Send the authorization code to your backend
-      await fetch("http://localhost:4000/auth/user/googleAuth", {
-        method: "POST",
-        headers: {
-          Authorization: code, // Send the code in the Authorization header
-          "Content-Type": "application/json",
+      const serverResponse = await axiosInstance.post(
+        "http://localhost:4000/auth/user/googleAuth",
+        {
+          code, // Assuming 'code' is already defined
         },
-        // Add more data if required
-        body: JSON.stringify({ code }),
-      });
+        {
+          headers: {
+            Authorization: code, // Send the code in the Authorization header
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      // Handle the response here
+      console.log(serverResponse.data);
 
       // Handle success (if needed)
     } catch (error) {
