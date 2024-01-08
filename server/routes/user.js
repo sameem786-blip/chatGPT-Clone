@@ -5,6 +5,7 @@ const userController = require("../controllers/user");
 router.post("/signup", userController.signup);
 router.post("/login", userController.login);
 router.post("/logout", userController.logout);
+router.post("googleAuth", userController.googleAuth);
 
 router.get("/microsoft", userController.msAuth);
 router.get("/microsoft/callback", userController.msAuthCallback);

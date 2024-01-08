@@ -9,6 +9,8 @@ import GoogleIcon from "../../public/search.png";
 import AppleIcon from "../../public/apple.png";
 import Axios from "axios";
 
+import { GoogleLogin } from "react-google-login";
+
 const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   const axiosInstance = Axios.create({
     withCredentials: true,
@@ -101,6 +103,27 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
     }
   };
 
+  const responseGoogle = async (response) => {
+    try {
+      const { code } = response; // Get the authorization code
+
+      // Send the authorization code to your backend
+      await fetch("http:localhost:4000/auth/user/googleAuth", {
+        method: "POST",
+        headers: {
+          Authorization: code, // Send the code in the Authorization header
+          "Content-Type": "application/json",
+        },
+        // Add more data if required
+        body: JSON.stringify({ code }),
+      });
+
+      // Handle success (if needed)
+    } catch (error) {
+      // Handle error (if needed)
+    }
+  };
+
   return (
     <div className={modalClass}>
       <div className="modal-content">
@@ -159,10 +182,14 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                   <img src={MicrosoftIcon} alt="Icon" className="oauth-icon" />
                   Continue with Microsoft Account
                 </button>
-                <button className="oauth-btn">
-                  <img src={GoogleIcon} alt="Icon" className="oauth-icon" />
-                  Continue with Google
-                </button>
+                <GoogleLogin
+                  clientId="569492616828-krv1lvkuqcqs2l562579v6094a5ri4sp.apps.googleusercontent.com"
+                  buttonText="Continue with Google"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={"single_host_origin"}
+                  className="oauth-btn"
+                ></GoogleLogin>
                 <button className="oauth-btn">
                   <img src={AppleIcon} alt="Icon" className="oauth-icon" />
                   Continue with Apple
