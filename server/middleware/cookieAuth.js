@@ -4,12 +4,12 @@ const env = require("dotenv");
 module.exports = async (req, res, next) => {
   try {
     const cookie = req.cookies.cookieAuth;
-    if (!cookieToken) return res.status(401).json("Not Logged In.");
-    decodedCookieToken = jwt.verify(cookieToken, "secret-key");
+    if (!cookie) return res.status(401).json("Not Logged In.");
+    decodedCookie = jwt.verify(cookie, "secret-key");
 
     req.userData = {
-      userName: docededCookieToken.name,
-      userId: decodedCookieToken.userId,
+      userName: decodedCookie.name,
+      userId: decodedCookie.userId,
     };
 
     next();

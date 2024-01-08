@@ -11,7 +11,7 @@ const axios = require("axios");
 exports.createNewChatGroup = async (req, res) => {
   try {
     const userPrompt = req.body.prompt;
-    const userId = req.body.userId;
+    const userId = req.userData.userId;
 
     const chatGroupObj = {
       name: userPrompt,
@@ -50,7 +50,7 @@ exports.createNewChatGroup = async (req, res) => {
 exports.getChatGroups = async (req, res) => {
   try {
     const chatGroups = await ChatGroup.find({
-      userId: req.query.userId,
+      userId: req.userData.userId,
     }).sort({ _id: -1 });
 
     res.status(200).json({

@@ -44,17 +44,17 @@ const Dashboard = (props) => {
   const [chatGroups, setChatGroups] = useState([]);
   const [currentChats, setCurrentChats] = useState([]);
 
- const fetchChatGroups = async () => {
-      try {
-        const response = await axiosInstance.get(
-          `http://localhost:4000/api/chat/getChatGroups?userId=${props.user._id}`
-        );
+  const fetchChatGroups = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `http://localhost:4000/api/chat/getChatGroups`
+      );
 
-        setChatGroups(response.data.chatGroups);
-      } catch (err) {
-        console.log(err);
-      }
+      setChatGroups(response.data.chatGroups);
+    } catch (err) {
+      console.log(err);
     }
+  };
 
   const handleNewPromptChange = (e) => {
     e.preventDefault();
@@ -88,16 +88,15 @@ const Dashboard = (props) => {
         "http://localhost:4000/api/chat/newChatGroup",
         {
           prompt: newPrompt,
-          userId: "65761077465d9f28a240c919",
         }
       );
 
-      setNewPrompt("")
+      setNewPrompt("");
       fetchChatGroups();
- 
+
       setCurrentChats(response.data.newChat);
       setSelectedGroup(response.data.newChatGroup._id);
-      setNewChat(false)
+      setNewChat(false);
     } catch (err) {
       console.log(err);
     }
@@ -109,14 +108,12 @@ const Dashboard = (props) => {
         "http://localhost:4000/api/chat/newChatGroup",
         {
           prompt: prompt,
-          userId: "65761077465d9f28a240c919",
         }
       );
-      fetchChatGroups()
+      fetchChatGroups();
       setCurrentChats(response.data.newChat);
       setSelectedGroup(response.data.newChatGroup._id);
-      setNewChat(false)
-      
+      setNewChat(false);
     } catch (err) {
       console.log(err);
     }
