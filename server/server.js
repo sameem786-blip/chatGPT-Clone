@@ -43,6 +43,7 @@ const onListening = () => {
   const addr = server.address();
   const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
   debug("Listening on " + bind);
+  console.log("server active");
 };
 
 const port = normalizePort(process.env.PORT || "4000");
@@ -52,11 +53,7 @@ app.get("/", function (req, res) {
   res.send("Server is working and CI/CD is implemented....");
 });
 
-// const options = {
-//   key: fs.readFileSync(path.join(__dirname, "./cert/localhost-key.pem")),
-//   cert: fs.readFileSync(path.join(__dirname, "./cert/localhost.pem")),
-// };
 const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);
-server.listen(port, () => [console.log("fvjsvno")]);
+server.listen(port);
