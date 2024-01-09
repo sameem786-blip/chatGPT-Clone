@@ -88,7 +88,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
     } catch (error) {
       setInvalidCredentials(true);
       // Handle errors here
-      console.error("Login failed", error.response.status);
+      console.error("Login failed :", error);
     }
   };
 
