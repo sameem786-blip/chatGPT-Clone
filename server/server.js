@@ -27,7 +27,7 @@ const onError = (error) => {
   const bind = typeof addr === "string" ? "pipe " + addr : "port " + port;
   switch (error.code) {
     case "EACCES":
-      console.error(bind + " req uires elevated privileges");
+      console.error(bind + " requires elevated privileges");
       process.exit(1);
       break;
     case "EADDRINUSE":

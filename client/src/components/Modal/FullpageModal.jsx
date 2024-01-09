@@ -118,7 +118,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
 
   const responseGoogle = async (response) => {
     try {
-      console.log("Hua Hua");
+      console.log(response);
       const { code } = response; // Get the authorization code
 
       // Send the authorization code to your backend
@@ -140,6 +140,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
 
       // Handle success (if needed)
     } catch (error) {
+      console.log(error);
       // Handle error (if needed)
     }
   };
