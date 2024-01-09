@@ -20,6 +20,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   const [password, setPassword] = useState("");
   const [stage, setStage] = useState("email");
   const [invalidCredentials, setInvalidCredentials] = useState(false);
+  const [isValid, setIsValid] = useState(true);
 
   const [emailValueExists, setEmailValueExists] = useState(false);
   const [passValueExists, setPassValueExists] = useState(false);
@@ -34,7 +35,14 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   };
 
   const handleContinue = () => {
-    setStage("password");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(email);
+
+    if (isValidEmail) {
+      setStage("password");
+    } else {
+      setIsValid(isValidEmail);
+    }
   };
 
   useEffect(() => {
@@ -45,6 +53,11 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
     event.preventDefault();
     setEmail(event.target.value); // Update the email state with the input value
     setEmailValueExists(!!event.target.value);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(event.target.value);
+
+    setIsValid(isValidEmail);
   };
   const handlePasswordChange = (event) => {
     event.preventDefault();
@@ -147,12 +160,12 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
             {stage == "email" ? (
               <>
                 <input
-                  className="inp"
+                  className={isValid ? "inp" : "inp invalid"} // Add a different class for invalid input
                   id="emailInput"
-                  placeholder=""
+                  placeholder="Enter your email"
                   value={email}
                   onChange={handleEmailChange}
-                ></input>
+                />
                 <label className="input-label">Email address</label>
                 <input
                   className="inp hidden"
