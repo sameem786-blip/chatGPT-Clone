@@ -6,6 +6,8 @@ const { connect } = require("./db/config");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+const http = require("http");
+
 const UserRoutes = require("./routes/user");
 const ChatRoutes = require("./routes/chat");
 
@@ -36,9 +38,5 @@ console.log("Attempting to connect to DB...");
 connect();
 app.use("/auth/user", UserRoutes);
 app.use("/api/chat", ChatRoutes);
-
-app.listen(process.env.PORT, () => {
-  console.log(`Server is listeing on port ${process.env.PORT}`);
-});
 
 module.exports = app;
