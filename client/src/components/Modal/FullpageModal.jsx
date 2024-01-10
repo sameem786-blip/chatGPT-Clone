@@ -247,7 +247,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                 </GoogleOAuthProvider> */}
                 <button className="oauth-btn" onClick={handleGoogleLogin}>
                   <img src={GoogleIcon} alt="Icon" className="oauth-icon" />
-                  Continue with Apple
+                  Continue with Google
                 </button>
                 <button className="oauth-btn">
                   <img src={AppleIcon} alt="Icon" className="oauth-icon" />
