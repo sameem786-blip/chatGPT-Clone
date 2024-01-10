@@ -9,7 +9,10 @@ import GoogleIcon from "../../public/search.png";
 import AppleIcon from "../../public/apple.png";
 import Axios from "axios";
 
-import { GoogleLogin } from "react-google-login";
+// import { GoogleLogin } from "react-google-login";
+import { GoogleLogin } from "@react-oauth/google";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   const axiosInstance = Axios.create({
@@ -116,34 +119,63 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
     }
   };
 
-  const responseGoogle = async (response) => {
-    try {
-      console.log(response);
-      const { code } = response; // Get the authorization code
+  const login = useGoogleLogin({
+    onSuccess: async (codeResponse) => {
+      try {
+        const googleCode = codeResponse.code; // Assuming 'code' is the property holding the Google code
 
-      // Send the authorization code to your backend
-      const serverResponse = await axiosInstance.post(
-        "http://localhost:4000/auth/user/googleAuth",
-        {
-          code, // Assuming 'code' is already defined
-        },
-        {
-          headers: {
-            Authorization: code, // Send the code in the Authorization header
-            "Content-Type": "application/json",
-          },
-        }
-      );
+        // Make a POST request to your backend with the Google code
+        const userResponse = await axiosInstance.post(
+          "http://localhost:4000/auth/user/googleAuth",
+          {
+            code: googleCode,
+          }
+        );
 
-      // Handle the response here
-      console.log(serverResponse.data);
+        console.log(userResponse);
 
-      // Handle success (if needed)
-    } catch (error) {
-      console.log(error);
-      // Handle error (if needed)
-    }
+        onLogin(userResponse.data.user);
+        // Handle the user response data from your backend as needed
+      } catch (error) {
+        console.error("Error exchanging code:", error);
+        // Handle the error, if any
+      }
+    },
+    flow: "auth-code",
+  });
+
+  const handleGoogleLogin = () => {
+    login(); // Trigger the Google login
   };
+
+  // const responseGoogle = async (response) => {
+  //   try {
+  //     console.log(response);
+  //     const { code } = response; // Get the authorization code
+
+  //     // Send the authorization code to your backend
+  //     const serverResponse = await axiosInstance.post(
+  //       "http://localhost:4000/auth/user/googleAuth",
+  //       {
+  //         code, // Assuming 'code' is already defined
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: code, // Send the code in the Authorization header
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //     // Handle the response here
+  //     console.log(serverResponse.data);
+
+  //     // Handle success (if needed)
+  //   } catch (error) {
+  //     console.log(error);
+  //     // Handle error (if needed)
+  //   }
+  // };
 
   return (
     <div className={modalClass}>
@@ -203,14 +235,20 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                   <img src={MicrosoftIcon} alt="Icon" className="oauth-icon" />
                   Continue with Microsoft Account
                 </button>
-                <GoogleLogin
-                  clientId="569492616828-krv1lvkuqcqs2l562579v6094a5ri4sp.apps.googleusercontent.com"
-                  buttonText="Continue with Google"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  cookiePolicy={"single_host_origin"}
-                  className="oauth-btn"
-                ></GoogleLogin>
+                {/* <GoogleOAuthProvider clientId="569492616828-krv1lvkuqcqs2l562579v6094a5ri4sp.apps.googleusercontent.com">
+                  <GoogleLogin
+                    onSuccess={(credentialResponse) => {
+                      console.log(credentialResponse.credential);
+                    }}
+                    onError={() => {
+                      console.log("Login Failed");
+                    }}
+                  />
+                </GoogleOAuthProvider> */}
+                <button className="oauth-btn" onClick={handleGoogleLogin}>
+                  <img src={GoogleIcon} alt="Icon" className="oauth-icon" />
+                  Continue with Apple
+                </button>
                 <button className="oauth-btn">
                   <img src={AppleIcon} alt="Icon" className="oauth-icon" />
                   Continue with Apple

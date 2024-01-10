@@ -136,7 +136,7 @@ exports.msAuthCallback = async (req, res) => {
 exports.googleAuth = async (req, res) => {
   try {
     // get the code from frontend
-    const code = req.headers.authorization;
+    const code = req.body.code;
     console.log("Authorization Code:", code);
 
     // Exchange the authorization code for an access token
@@ -154,7 +154,7 @@ exports.googleAuth = async (req, res) => {
     console.log("Access Token:", accessToken);
 
     // Fetch user details using the access token
-    const userResponse = await axios.get(
+    const googleUser = await axios.get(
       "https://www.googleapis.com/oauth2/v3/userinfo",
       {
         headers: {
@@ -162,15 +162,69 @@ exports.googleAuth = async (req, res) => {
         },
       }
     );
-    const userDetails = userResponse.data;
-    console.log("User Details:", userDetails);
 
-    // Process user details and perform necessary actions
+    console.log(googleUser);
 
-    res.status(200).json({ message: "Authentication successful" });
+    const userResponse = await User.findOne({ email: googleUser.data.email });
+
+    if (!userResponse) {
+      const userObj = {
+        name: googleUser.name,
+        email: googleUser.email,
+        encryptedPassword: "12345678",
+      };
+
+      const hashedPassword = await bcrypt.hash("12345678", 10);
+
+      userObj.encryptedPassword = hashedPassword;
+
+      // Create the user with the hashed password
+      console.log("B");
+      const newUser = await User.create(userObj);
+      console.log("C");
+
+      // Remove password from the response
+      const { encryptedPassword, ...userWithoutPassword } = newUser.toObject();
+
+      const token = jwt.sign(
+        { name: newUser.name, userId: newUser._id },
+        "secret-key"
+      );
+
+      res
+        .cookie("cookieAuth", token, {
+          httpOnly: true,
+          sameSite: "",
+          secure: true,
+        })
+        .status(200)
+        .json({
+          message: "SignUp successful",
+          user: userWithoutPassword,
+        });
+    } else {
+      const { encryptedPassword, ...userWithoutPassword } =
+        userResponse.toObject();
+      const token = jwt.sign(
+        { name: userResponse.name, userId: userResponse._id },
+        "secret-key"
+      );
+
+      res
+        .cookie("cookieAuth", token, {
+          httpOnly: true,
+          sameSite: "",
+          secure: true,
+        })
+        .status(200)
+        .json({
+          message: "Login successful",
+          user: userWithoutPassword,
+        });
+    }
   } catch (error) {
-    console.error("Error saving code:", error);
-    res.status(500).json({ message: "Failed to save code" });
+    console.error("Error authenticating Google:", error);
+    res.status(500).json({ message: "Error authenticating Google" });
   }
 };
 
