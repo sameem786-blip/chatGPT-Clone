@@ -836,12 +836,19 @@
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
+  /* This CSS snippet keeps the label at the top when there's a value in the input */
+  .inp:not(:placeholder-shown) + .input-label,
   .inp:focus + .input-label {
-    transform: translateY(-670%) scale(0.7);
-    left: 100px;
+    transform: translate(130%, -670%) scale(0.7);
+    left: 1%;
     background-color: #fff;
     color: #0e9272;
   }
+  .inp:not(:placeholder-shown) + .input-label.invalid,
+  .inp:focus + .input-label.invalid {
+    color: red;
+  }
+
   .stage-2-email-label {
     position: absolute;
     left: 20%;

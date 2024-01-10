@@ -199,7 +199,11 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                   value={email}
                   onChange={handleEmailChange}
                 />
-                <label className="input-label">Email address</label>
+                <label
+                  className={isValid ? "input-label" : "input-label invalid"}
+                >
+                  Email address
+                </label>
                 <input
                   className="inp hidden"
                   id="emailInput"
