@@ -195,7 +195,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                 <input
                   className={isValid ? "inp" : "inp invalid"} // Add a different class for invalid input
                   id="emailInput"
-                  placeholder="Enter your email"
+                  placeholder=""
                   value={email}
                   onChange={handleEmailChange}
                 />
