@@ -1,13 +1,12 @@
-const User = require("../schemas/User");
-
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
 
+const User = require("../schemas/User");
+
 const { OAuth2Client } = require("google-auth-library");
 const oauth2Client = new OAuth2Client();
 
-//sign up
 exports.signup = async (req, res) => {
   try {
     const userObj = {
@@ -72,7 +71,7 @@ exports.login = async (req, res) => {
 
     const token = jwt.sign(
       { name: userResponse.name, userId: userResponse._id },
-      "secret-key"
+      process.env.JWT_SECRET_KEY
     );
 
     res
@@ -188,7 +187,7 @@ exports.googleAuth = async (req, res) => {
 
       const token = jwt.sign(
         { name: newUser.name, userId: newUser._id },
-        "secret-key"
+        process.env.JWT_SECRET_KEY
       );
 
       res
@@ -207,7 +206,7 @@ exports.googleAuth = async (req, res) => {
         userResponse.toObject();
       const token = jwt.sign(
         { name: userResponse.name, userId: userResponse._id },
-        "secret-key"
+        process.env.JWT_SECRET_KEY
       );
 
       res

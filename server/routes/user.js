@@ -7,11 +7,7 @@ router.post("/login", userController.login);
 router.post("/logout", userController.logout);
 router.post("/googleAuth", userController.googleAuth);
 
-router.get("/microsoft", userController.msAuth);
-router.get("/microsoft/callback", userController.msAuthCallback);
+router.get("/microsoftAuth", userController.msAuth);
 router.get("/forget-password", userController.forgetPassword);
-
-// router.post("/googleAuth",userController.googleAuth)
-// router.post("/appleAuth",userController.appleAuth)
 
 module.exports = router;

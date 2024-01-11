@@ -1,13 +1,12 @@
 const express = require("express");
-const router = express.Router();
+const mongoose = require("mongoose");
+const axios = require("axios");
 
-// Import your User model or any other necessary modules
 const User = require("../schemas/Chat");
 const ChatGroup = require("../schemas/ChatGroup");
 const Chat = require("../schemas/Chat");
 
-const mongoose = require("mongoose");
-const axios = require("axios");
+const router = express.Router();
 
 exports.createNewChatGroup = async (req, res) => {
   try {
