@@ -1,4 +1,5 @@
 import React from "react";
+import "./OauthBtn.css";
 
 const OauthBtn = (props) => {
   return (

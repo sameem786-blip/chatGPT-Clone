@@ -238,18 +238,6 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                   <p className="orline-or">OR</p>
                   <hr className="orline-line"></hr>
                 </div>
-                {/* <button className="oauth-btn">
-                  <img src={MicrosoftIcon} alt="Icon" className="oauth-icon" />
-                  Continue with Microsoft Account
-                </button>
-                <button className="oauth-btn" onClick={handleGoogleLogin}>
-                  <img src={GoogleIcon} alt="Icon" className="oauth-icon" />
-                  Continue with Google
-                </button> */}
-                {/* <button className="oauth-btn">
-                  <img src={AppleIcon} alt="Icon" className="oauth-icon" />
-                  Continue with Apple
-                </button> */}
                 <OauthBtn icon={MicrosoftIcon} OAuthProvider={`Microsoft`} />
                 <OauthBtn
                   icon={GoogleIcon}

@@ -1,0 +1,93 @@
+@media screen and (min-width: 200px) {
+  .oauth-btn {
+    height: 45px;
+    width: 275px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Sohne Bold";
+    color: black;
+    font-size: 10px;
+    font-weight: 100;
+    line-height: 21px;
+    border: 1px solid #c2c8d0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+    text-align: center;
+  }
+  .oauth-icon {
+    height: 10px;
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 640px) {
+  .oauth-btn {
+    height: 45px;
+    width: 275px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Sohne Bold";
+    color: black;
+    font-size: 10px;
+    font-weight: 100;
+    line-height: 21px;
+    border: 1px solid #c2c8d0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+  }
+  .oauth-icon {
+    height: 10px;
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .oauth-btn {
+    height: 45px;
+    width: 325px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Sohne Bold";
+    color: black;
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 21px;
+    border: 1px solid #c2c8d0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+  }
+  .oauth-icon {
+    height: 15px;
+    margin-right: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .oauth-btn {
+    height: 45px;
+    width: 357px;
+    border-radius: 5px;
+    background-color: white;
+    font-family: "Sohne Bold";
+    color: black;
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 21px;
+    border: 1px solid #c2c8d0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 20px;
+  }
+  .oauth-icon {
+    height: 20px;
+    margin-right: 20px;
+  }
+}
