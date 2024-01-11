@@ -14,6 +14,9 @@ import { GoogleLogin } from "@react-oauth/google";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useGoogleLogin } from "@react-oauth/google";
 
+//components
+import OauthBtn from "../OauthBtn/OauthBtn";
+
 const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   const axiosInstance = Axios.create({
     withCredentials: true,
@@ -235,28 +238,25 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
                   <p className="orline-or">OR</p>
                   <hr className="orline-line"></hr>
                 </div>
-                <button className="oauth-btn">
+                {/* <button className="oauth-btn">
                   <img src={MicrosoftIcon} alt="Icon" className="oauth-icon" />
                   Continue with Microsoft Account
                 </button>
-                {/* <GoogleOAuthProvider clientId="569492616828-krv1lvkuqcqs2l562579v6094a5ri4sp.apps.googleusercontent.com">
-                  <GoogleLogin
-                    onSuccess={(credentialResponse) => {
-                      console.log(credentialResponse.credential);
-                    }}
-                    onError={() => {
-                      console.log("Login Failed");
-                    }}
-                  />
-                </GoogleOAuthProvider> */}
                 <button className="oauth-btn" onClick={handleGoogleLogin}>
                   <img src={GoogleIcon} alt="Icon" className="oauth-icon" />
                   Continue with Google
-                </button>
-                <button className="oauth-btn">
+                </button> */}
+                {/* <button className="oauth-btn">
                   <img src={AppleIcon} alt="Icon" className="oauth-icon" />
                   Continue with Apple
-                </button>
+                </button> */}
+                <OauthBtn icon={MicrosoftIcon} OAuthProvider={`Microsoft`} />
+                <OauthBtn
+                  icon={GoogleIcon}
+                  OAuthProvider={`Google`}
+                  onClick={handleGoogleLogin}
+                />
+                <OauthBtn icon={AppleIcon} OAuthProvider={`Apple`} />
               </>
             ) : (
               <>
