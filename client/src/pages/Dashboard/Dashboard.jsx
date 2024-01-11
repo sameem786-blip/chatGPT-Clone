@@ -17,6 +17,7 @@ import GreenOpenAi from "../../public/greenopenai.webp";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import GroupChatSelection from "../../components/GroupChatSelection/GroupChatSelection";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: "0px",
@@ -212,18 +213,12 @@ const Dashboard = (props) => {
                 </Item1>
                 <div className="chatGroups">
                   {chatGroups.map((chatGroup) => (
-                    <div
-                      className={`chat-group ${
-                        selectedGroup === chatGroup._id ? "selected" : ""
-                      }`}
+                    <GroupChatSelection
                       key={chatGroup._id}
-                      onClick={() => {
-                        handleChatGroupSelect(chatGroup._id);
-                      }}
-                    >
-                      <p className="left-item-text">{chatGroup.name}</p>
-                      <MoreHorizIcon className="icon-hover" />
-                    </div>
+                      chatGroup={chatGroup}
+                      selectedGroup={selectedGroup}
+                      handleChatGroupSelect={handleChatGroupSelect}
+                    />
                   ))}
                 </div>
                 <Item1
