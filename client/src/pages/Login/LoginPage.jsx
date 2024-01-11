@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import "./login.css";
+
 import Logo from "../../public/logo.PNG";
 import openai from "../../public/openai.png";
 import typewriterText from "../../JSON/typeWriterText.json";

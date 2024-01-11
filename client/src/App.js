@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import Dashboard from "./pages/Dashboard/Dashboard.jsx";
 
@@ -32,7 +33,6 @@ function App() {
               )
             }
           />
-          {/* Add more routes as needed */}
         </Routes>
       </BrowserRouter>
     </div>
