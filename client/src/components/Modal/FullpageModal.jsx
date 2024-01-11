@@ -16,6 +16,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 
 //components
 import OauthBtn from "../OauthBtn/OauthBtn";
+import TermnPolicy from "../TermnPolicy/TermnPolicy";
 
 const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
   const axiosInstance = Axios.create({
@@ -319,11 +320,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
             )}
           </div>
           <div className="modalfooter">
-            <div className="termnpolicy">
-              <p className="modal-footerLink">Terms of use</p>
-              <hr className="footer-line"></hr>
-              <p className="modal-footerLink">Privacy policy</p>
-            </div>
+            <TermnPolicy isLoginPage={false} />
           </div>
         </div>
       </div>

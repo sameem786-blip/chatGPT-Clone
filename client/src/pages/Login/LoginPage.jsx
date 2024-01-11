@@ -4,6 +4,7 @@ import Logo from "../../public/logo.PNG";
 import openai from "../../public/openai.png";
 import typewriterText from "../../JSON/typeWriterText.json";
 import Modal from "../../components/Modal/FullpageModal";
+import TermnPolicy from "../../components/TermnPolicy/TermnPolicy";
 
 const LoginPage = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -126,11 +127,7 @@ const LoginPage = (props) => {
           </div>
           <div className="footer">
             <img src={openai} alt="" className="openailogo" />
-            <div className="termnpolicy">
-              <p className="footerLink">Terms of use</p>
-              <hr className="footer-line"></hr>
-              <p className="footerLink">Privacy policy</p>
-            </div>
+            <TermnPolicy isLoginPage={true} />
           </div>
         </div>
       </div>
