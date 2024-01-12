@@ -1,4 +1,16 @@
 /* HTML: <div class="loader"></div> */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; /* Semi-transparent white background for the overlay */
+  backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Make sure the loader is on top of everything */
+}
+
 .loader {
   width: 15px;
   aspect-ratio: 1;

@@ -8,10 +8,12 @@ import typewriterText from "../../JSON/typeWriterText.json";
 import Modal from "../../components/Modal/FullpageModal";
 import TermnPolicy from "../../components/TermnPolicy/TermnPolicy";
 import Typewriter from "../../components/Typewriter/Typewriter";
+import Loader from "../../components/Loader/Loader";
 
 const LoginPage = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   function getTheme() {
     if (
@@ -36,6 +38,10 @@ const LoginPage = (props) => {
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", updateTheme);
 
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
     return () => {
       window
         .matchMedia("(prefers-color-scheme: dark)")
@@ -54,6 +60,7 @@ const LoginPage = (props) => {
 
   return (
     <div className="container">
+      {loading && <Loader />}
       <div className={theme === "dark" ? "left-dark" : "left"}>
         <div className="innerContainer">
           <div className="heading">
