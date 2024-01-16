@@ -99,7 +99,7 @@ const Dashboard = (props) => {
       setNewPrompt("");
       fetchChatGroups();
 
-      setCurrentChats(response.data.newChat);
+      setCurrentChats((prevChats) => [response.data.newChat]);
       setSelectedGroup(response.data.newChatGroup._id);
       setNewChat(false);
     } catch (err) {
@@ -116,7 +116,7 @@ const Dashboard = (props) => {
         }
       );
       fetchChatGroups();
-      setCurrentChats(response.data.newChat);
+      setCurrentChats((prevChats) => [response.data.newChat]);
       setSelectedGroup(response.data.newChatGroup._id);
       setNewChat(false);
     } catch (err) {
