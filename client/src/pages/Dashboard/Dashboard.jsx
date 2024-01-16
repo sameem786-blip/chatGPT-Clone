@@ -52,7 +52,7 @@ const Dashboard = (props) => {
   const fetchChatGroups = async () => {
     try {
       const response = await axiosInstance.get(
-        `http://65.0.204.54:4000/api/chat/getChatGroups`
+        `http://localhost:4000/api/chat/getChatGroups`
       );
 
       setChatGroups(response.data.chatGroups);
@@ -73,7 +73,7 @@ const Dashboard = (props) => {
   const handlePromptSubmit = async () => {
     try {
       const response = await axiosInstance.post(
-        "http://65.0.204.54:4000/api/chat/addChat",
+        "http://localhost:4000/api/chat/addChat",
         {
           prompt: prompt,
           groupId: selectedGroup,
@@ -90,7 +90,7 @@ const Dashboard = (props) => {
   const handleNewPromptSubmit = async () => {
     try {
       const response = await axiosInstance.post(
-        "http://65.0.204.54:4000/api/chat/newChatGroup",
+        "http://localhost:4000/api/chat/newChatGroup",
         {
           prompt: newPrompt,
         }
@@ -110,7 +110,7 @@ const Dashboard = (props) => {
   const handleCustomChatSubmit = async (prompt) => {
     try {
       const response = await axiosInstance.post(
-        "http://65.0.204.54:4000/api/chat/newChatGroup",
+        "http://localhost:4000/api/chat/newChatGroup",
         {
           prompt: prompt,
         }
@@ -127,7 +127,7 @@ const Dashboard = (props) => {
   const handleChatGroupSelect = async (groupid) => {
     try {
       const response = await axiosInstance.get(
-        `http://65.0.204.54:4000/api/chat/getGroupChats?groupId=${groupid}`
+        `http://localhost:4000/api/chat/getGroupChats?groupId=${groupid}`
       );
 
       setCurrentChats(response.data.chats);
@@ -155,7 +155,7 @@ const Dashboard = (props) => {
 
   const handleLogout = async () => {
     try {
-      await axiosInstance.post("http://65.0.204.54:4000/auth/user/logout");
+      await axiosInstance.post("http://localhost:4000/auth/user/logout");
       props.onLogout();
     } catch (err) {
       console.log(err);
