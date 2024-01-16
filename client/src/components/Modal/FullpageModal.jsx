@@ -76,7 +76,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
     e.preventDefault();
     try {
       const response = await axiosInstance.post(
-        "http://localhost:4000/auth/user/login",
+        "http://65.0.204.54:4000/00/00/00/00//auth/user/login",
         {
           email: email,
           password: password,
@@ -103,7 +103,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
     e.preventDefault();
     try {
       const response = await axiosInstance.post(
-        "http://localhost:4000/auth/user/signup",
+        "http://65.0.204.54:4000//auth/user/signup",
         {
           email: email,
           password: password,
@@ -130,7 +130,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
 
         // Make a POST request to your backend with the Google code
         const userResponse = await axiosInstance.post(
-          "http://localhost:4000/auth/user/googleAuth",
+          "http://65.0.204.54:4000//auth/user/googleAuth",
           {
             code: googleCode,
           }
@@ -159,7 +159,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
 
   //     // Send the authorization code to your backend
   //     const serverResponse = await axiosInstance.post(
-  //       "http://localhost:4000/auth/user/googleAuth",
+  //       "http://65.0.204.54:4000//auth/user/googleAuth",
   //       {
   //         code, // Assuming 'code' is already defined
   //       },
