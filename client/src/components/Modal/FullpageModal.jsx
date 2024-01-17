@@ -91,7 +91,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
       setPassword("");
       setInvalidCredentials(false);
 
-      onLogin(response.data.user);
+      onLogin(response.data.user, response.data.token);
     } catch (error) {
       setInvalidCredentials(true);
       // Handle errors here
@@ -138,7 +138,7 @@ const FullpageModal = ({ isOpen, content, onClose, onLogin }) => {
 
         console.log(userResponse);
 
-        onLogin(userResponse.data.user);
+        onLogin(userResponse.data.user, userResponse.data.token);
         // Handle the user response data from your backend as needed
       } catch (error) {
         console.error("Error exchanging code:", error);

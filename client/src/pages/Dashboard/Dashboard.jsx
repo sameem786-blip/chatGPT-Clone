@@ -52,7 +52,12 @@ const Dashboard = (props) => {
   const fetchChatGroups = async () => {
     try {
       const response = await axiosInstance.get(
-        `http://65.0.204.54:4000/api/chat/getChatGroups`
+        `http://65.0.204.54:4000/api/chat/getChatGroups`,
+        {
+          headers: {
+            Authorization: `Bearer ${props.token}`,
+          },
+        }
       );
 
       setChatGroups(response.data.chatGroups);
@@ -77,6 +82,11 @@ const Dashboard = (props) => {
         {
           prompt: prompt,
           groupId: selectedGroup,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${props.token}`,
+          },
         }
       );
 
@@ -93,6 +103,11 @@ const Dashboard = (props) => {
         "http://65.0.204.54:4000/api/chat/newChatGroup",
         {
           prompt: newPrompt,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${props.token}`,
+          },
         }
       );
 
@@ -113,6 +128,11 @@ const Dashboard = (props) => {
         "http://65.0.204.54:4000/api/chat/newChatGroup",
         {
           prompt: prompt,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${props.token}`,
+          },
         }
       );
       fetchChatGroups();
@@ -127,7 +147,12 @@ const Dashboard = (props) => {
   const handleChatGroupSelect = async (groupid) => {
     try {
       const response = await axiosInstance.get(
-        `http://65.0.204.54:4000/api/chat/getGroupChats?groupId=${groupid}`
+        `http://65.0.204.54:4000/api/chat/getGroupChats?groupId=${groupid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${props.token}`,
+          },
+        }
       );
 
       setCurrentChats(response.data.chats);

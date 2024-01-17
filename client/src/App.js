@@ -11,14 +11,23 @@ function App() {
     JSON.parse(localStorage.getItem("gptcloneuser")) || null
   );
 
-  const handleLogin = (user) => {
+  const [currentUserToken, setCurrentUserToken] = useState(
+    JSON.parse(localStorage.getItem("gptcloneuserToken")) || null
+  );
+
+  const handleLogin = (user, token) => {
     localStorage.setItem("gptcloneuser", JSON.stringify(user));
     setCurrentUser(user);
+
+    localStorage.setItem("gptcloneuserToken", JSON.stringify(token));
+    setCurrentUserToken(token);
   };
 
   const handleLogout = () => {
     localStorage.removeItem("gptcloneuser");
     setCurrentUser(null);
+    localStorage.removeItem("gptcloneuserToken");
+    setCurrentUserToken(null);
   };
 
   useEffect(() => {
@@ -36,7 +45,11 @@ function App() {
             path="/"
             element={
               currentUser ? (
-                <Dashboard user={currentUser} onLogout={handleLogout} />
+                <Dashboard
+                  token={currentUserToken}
+                  user={currentUser}
+                  onLogout={handleLogout}
+                />
               ) : (
                 <LoginPage onLogin={handleLogin} />
               )
