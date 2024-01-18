@@ -52,7 +52,7 @@ const Dashboard = (props) => {
   const fetchChatGroups = async () => {
     try {
       const response = await axiosInstance.get(
-        `http://65.0.204.54:4000/api/chat/getChatGroups`,
+        `https://chatgpt-clone-project.onrender.com/api/chat/getChatGroups`,
         {
           headers: {
             Authorization: `Bearer ${props.token}`,
@@ -78,7 +78,7 @@ const Dashboard = (props) => {
   const handlePromptSubmit = async () => {
     try {
       const response = await axiosInstance.post(
-        "http://65.0.204.54:4000/api/chat/addChat",
+        "https://chatgpt-clone-project.onrender.com/api/chat/addChat",
         {
           prompt: prompt,
           groupId: selectedGroup,
@@ -100,7 +100,7 @@ const Dashboard = (props) => {
   const handleNewPromptSubmit = async () => {
     try {
       const response = await axiosInstance.post(
-        "http://65.0.204.54:4000/api/chat/newChatGroup",
+        "https://chatgpt-clone-project.onrender.com/api/chat/newChatGroup",
         {
           prompt: newPrompt,
         },
@@ -125,7 +125,7 @@ const Dashboard = (props) => {
   const handleCustomChatSubmit = async (prompt) => {
     try {
       const response = await axiosInstance.post(
-        "http://65.0.204.54:4000/api/chat/newChatGroup",
+        "https://chatgpt-clone-project.onrender.com/api/chat/newChatGroup",
         {
           prompt: prompt,
         },
@@ -147,7 +147,7 @@ const Dashboard = (props) => {
   const handleChatGroupSelect = async (groupid) => {
     try {
       const response = await axiosInstance.get(
-        `http://65.0.204.54:4000/api/chat/getGroupChats?groupId=${groupid}`,
+        `https://chatgpt-clone-project.onrender.com/api/chat/getGroupChats?groupId=${groupid}`,
         {
           headers: {
             Authorization: `Bearer ${props.token}`,
@@ -180,7 +180,9 @@ const Dashboard = (props) => {
 
   const handleLogout = async () => {
     try {
-      await axiosInstance.post("http://65.0.204.54:4000/auth/user/logout");
+      await axiosInstance.post(
+        "https://chatgpt-clone-project.onrender.com/auth/user/logout"
+      );
       props.onLogout();
     } catch (err) {
       console.log(err);
